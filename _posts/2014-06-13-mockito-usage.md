@@ -76,11 +76,11 @@ tags: [Java,Test]
 
 更灵活的参数匹配，请参见 [Mockito Matchers](http://mockito.googlecode.com/svn/tags/latest/javadoc/org/mockito/Matchers.html)
 
-## 验证方法调用或用次数
+## 验证方法调用或调用次数
 
 调用 `addList` ,其中 `addList` 方法内部调用了 `List` 的 `add` 方法
 
-	mockService.addList("once")
+	mockService.addList("once");
 
 验证 `add` 方法是否被调用了
 
@@ -89,8 +89,69 @@ tags: [Java,Test]
 验证 `add` 方法是否被调用了一次
 
 	verify(mockedList, times(1)).add("once");
+	verify(mockedList, never()).addd("twice");
 
-还可以通过 `atLeast(int i)` 和 `atMost(int i)` 来替代 `time(int i)` 来验证被调用的次数最小值和最大值。
+还可以通过 `atLeast(int i)` 和 `atMost(int i)` 来替代 `time(int i)` 来验证被调用的次数最小值和最大值；`never()` 验证从未调用。
+
+
+## 验证方法执行顺序
+
+`Service` 对象内部先后调用 `List` 对象的 `add` 方法两次.
+
+	List firstMock = mock(List.Class);
+	List secondMock = mock(List.Class);
+
+	firstMock.add("first");
+	secondMock.add("second");
+
+创建 `InOrder` 对象来验证执行顺序.
+
+	InOrder inOrder = InOrder(firstMock, secondMock);
+	inOrder.verify(firstMock).add("first");
+	inOrder.verify(secondMock).add("second");
+
+
+## 验证超时
+
+使用 `timeout(int i)` 来验证超时,但不能和 `InOrder` 一起使用.
+
+	verify(mock, timeout(200)).someMethod();
+
+严重超时调用2次.
+
+	verify(mock, timeout(200).times(2)).someMethod();
+
+严重超时调用至少2次.
+
+	verify(mock, timeout(200).atLeast(2)).someMethod();
+
+自定义验证模型
+
+	// TODO 待研究
+	verify(mock, new Timeout(100, yourOwnVerificationMode)).someMethod();
+
+
+## 使用注解 @Mock, @Captor, @Spy, @InjectMocks
+
+可以使用 `@Mock` 注解来简化 Mock 对象的创建.
+
+	@Mock private List mockList;
+
+可以使用 `@Captor` 简化 `ArgumentCaptor` 的创建.
+
+	// TODO 待添加实例.
+
+可以使用 `@Sqy` 代替 `spy(Object)`
+
+	@Spy List spyList = new ArrayList();
+
+可以使用 `@InjectMocks` 注解自动注入被测试的对象.
+
+	@InjectMocks private Service mockService;
+
+**注意**: 使用以上注解都必须在(基)类中或 test runner 中初始化.
+
+	MockitoAnnotations.initMocks(testClass);
 
 
 
@@ -102,6 +163,8 @@ tags: [Java,Test]
 
 [Mockito入门](http://blog.csdn.net/huoshuxiao/article/details/6107835)
 
+
+***
 
 [jmock]: http://jmock.org/
 [easymock]: http://easymock.org/
