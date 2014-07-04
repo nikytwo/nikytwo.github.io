@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "安装 git"
-description: "如何安装 git"
+title: "安装 Git"
+description: "如何安装 Git"
 category: Tool
-tags: [git]
+tags: [Git]
 ---
 {% include JB/setup %}
 

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "git 基本操作"
-description: "git 基本操作"
+title: "Git 基本操作"
+description: "Git 基本操作"
 category: Tool
-tags: [git]
+tags: [Git]
 ---
 {% include JB/setup %}
 

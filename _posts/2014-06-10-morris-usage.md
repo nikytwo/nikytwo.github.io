@@ -48,7 +48,16 @@ Next add a `<script>` block to the end of your page, containing the following ja
 	  ykeys: ['value'],
 	  // Labels for the ykeys -- will be displayed when you hover over the
 	  // chart.
-	  labels: ['Value']
+	  labels: ['Value'],
+	  // 默认情况下,Line 的 x 轴会自动格式为时间,可以如下手工取消.
+	  parseTime: false,
+	  // x 轴的文本说明倾斜角度
+	  xLabelAngle: 60,
+	  // 取消线段的平滑效果
+	  smooth: false
+	}).on('click', function(i,row) {
+		// 点击事件
+		window.location.href = "index.jsp?value=" + row.value;
 	});
 
 大功告成!

@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "TortoiseGit 下 git 基本操作"
-description: "TortoiseGit 下 git 基本操作"
+title: "TortoiseGit 下 Git 基本操作"
+description: "TortoiseGit 下 Git 基本操作"
 category: Tool
-tags: [git]
+tags: [Git]
 ---
 {% include JB/setup %}
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "junit usage"
+title: "JUnit 使用"
 description: "JUnit 使用"
 category: Lib
 tags: [Java, Test]

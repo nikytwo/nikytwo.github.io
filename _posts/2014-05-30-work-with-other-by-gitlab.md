@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "gitlab 多人协同开发"
-description: "gitlab 多人协同开发"
+title: "Gitlab 多人协同开发"
+description: "Gitlab 多人协同开发"
 category: Tool
-tags: [git,gitlab]
+tags: [Git,Gitlab]
 ---
 {% include JB/setup %}
 
@@ -65,7 +65,7 @@ gitlab help 中给出的角色与权限如下图.
 
 ## 模拟操作
 
-
+	// TODO 待整理
 
 
 
