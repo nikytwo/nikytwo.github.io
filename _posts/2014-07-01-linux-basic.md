@@ -19,6 +19,8 @@ cp
 
 mount/umount
 
+	mount /dev/dvd /mnt/dvd
+
 
 # 用户权限
 
@@ -47,7 +49,31 @@ grep
 
 cat
 
-rpm
+## rpm
+
+执行安装包。
+分二进制包（Binary）以及源代码包（Source）两种。二进制包可以直接安装在计算机中，而源代码包将会由RPM自动编译、安装。源代码包经常以src.rpm作为后缀名。
+
+参数说明:
+
+-i,--install : 安装
+
+-v,--verbose : 显示详细信息
+
+-e,--erase : 卸载
+
+-q : 查询
+
+-a,--all : 查询/检验所有包
+
+--nodeps : 忽略包依赖关系强行安装
+
+范例:
+
+	rpm -q samba
+	rpm -qa | grep httpd
+	rpm -ql httpd
+
 
 tree
 
@@ -126,5 +152,33 @@ Crontab 文件内容格式如下:
 周一到周五每天下午 5:00 寄一封信给 alex@domain.name :
 
 	0 17 * * 1-5 mail -s "hi" alex@domain.name  /dev/null 2>&1
+
+
+## tar
+
+	tar [必要参数] [选择参数] [文件]
+
+参数说明:
+
+-c : 建立新的压缩文件
+
+-f : 指定文件
+
+-t : 显示压缩文件的内容
+
+-x : 从压缩文件中提取文件
+
+-v : 显示操作过程
+
+范例:
+
+	# 将文件 foo 和 bar 压缩为 archive.tar
+	tar -cf archive.tar foo bar
+
+	# 显示 archive.tar 中的所有文件
+	tar -tvf archive.tar
+
+	# 解压 archive.tar
+	tar -xf archive.tar
 
 

@@ -57,7 +57,17 @@ tags: [Linux]
 	sudo lokkit -p 2443:tcp
 
 
+## genisoimage / mkisofs
 
+	genisoimage [参数] [-o isofile] pathspec [pathspec ...]
+
+参数说明:
+
+-o : 指定映像文件名称
+
+-r : 使用Rock Ridge Extensions(支持文件名字母大小写、符号字符以及长文件名)，并开放全部文件的读取权限。
+
+-J : 使用Joliet格式(可显示 64个字符 ，并可使用中文，但是不能被MAC机所读取)的目录与文件名称。
 
 
 
