@@ -18,6 +18,8 @@ tags: [Git]
 
 # 客户端工具
 
+安装客户端前都需要先安装 Gi。
+
 ### 1. [TortoiseGit][link001]
 
 > 支持系统：windows

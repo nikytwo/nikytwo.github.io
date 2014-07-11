@@ -181,4 +181,9 @@ Crontab 文件内容格式如下:
 	# 解压 archive.tar
 	tar -xf archive.tar
 
+## createrepo
+
+用于生成 yum 仓库所必须的一些信息，这些信息都存放在 repodata/ 目录底下
+
+	createrepo /path/packages
 
