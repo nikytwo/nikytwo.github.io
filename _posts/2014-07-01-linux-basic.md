@@ -40,14 +40,136 @@ find
 
 grep
 
+# 管理监控
+
+## who
+
+显示谁登录了系统.
+
+	who|w OPTION]
+
+参数说明:
+
+-a, --all : 显示全部
+
+-b, --boot : 登录时间
+
+-H, --heading : 打印列名
+
+-u, --users : 列出登录的用户
+
+## top
+
+提供一个当前系统实时的动态视图.默认显示系统中CPU使用率最高的任务,并每5秒刷新一次.
+
+	top
+
+热键说明:
+
+t : 显示摘要信息开关.
+
+m : 显示内存信息开关.
+
+A : 分类显示系统不同资源的使用大户.有助于快速识别系统中资源消耗多的任务.
+
+f : 添加/删除所要显示的列.
+
+o : 调整所要显示的列的顺序.
+
+r : 调整一个正在运行的进程的 Nice 值.
+
+k : 结束一个正在运行的进程.
+
+z : 彩色/黑白显示开关.
+
+
+## ps
+
+显示当前所有运行的程序.
+
+	ps [options]
+
+## free
+
+显示内存使用情况.
+
+	free [options]
+
+参数说明:
+
+-t, --total : 显示合计行.
+
+
+
 
 # 网络安全
 
 ## 设置
 
+所有网络配置完成后，都需要重启网络服务：
+
+	service network restart 或/etc/init.d/network restart
+
+### 网卡配置
+
+网卡配置文件位于 /etc/sysconfig/network-scripts 目录下。
+一块网卡对应一个网卡配置文件，配置文件命名规则：
+
+	ifcfg-网卡类型+网卡的序列号
+
+由于以太网卡类型是eth，网卡的序列号从0开始，所以第一块网卡的配置文件名称为ifcfg-eth0，第二块网卡为ifcfg-eth1，以此类推。
+
+	DEVICE=eth0 #物理设备名
+	TYPE=Ethernet #网卡的类型
+	HWADDR=00:02:B3:0B:64:22 #该网卡的MAC地址
+	IPADDR=192.168.1.10 #IP地址
+	NETMASK=255.255.255.0 #掩码值
+	NETWORK=192.168.1.0 #网络地址(可不要)
+	BROADCAST=192.168.1.255 #广播地址（可不要）
+	GATEWAY=192.168.1.1 #网关地址
+	ONBOOT=yes # [yes|no]（启动时是否激活设备）
+	USERCTL=no #[yes|no]（非root用户是否可以控制该设备）
+	BOOTPROTO=static #[none|static|bootp|dhcp]（引导时不使用协议|静态分配|BOOTP协议|DHCP协议）
+
+### DNS 配置
+
+配置文件位于 /etc/resolv.conf
+
+	nameserver 202.109.14.5 #主DNS
+	nameserver 219.141.136.10 #次DNS
+	search localdomain
+
+### ifconfig 命令
+
+	ifconfig eth0 192.168.0.10 将采用默认子网掩码
+	ifconfig eth0 192.168.0.10 netmask 255.255.255.252 (手动定义子网掩码)
+	ifconfig eth0 up(激活网卡）
+	ifconfig eth0 down(关闭网卡）
+
+### route 命令
+
+	route add -net 192.168.1.0 netmask 255.255.255.0 eth0 (添加一条到192.168.1.0网络的路由条目)
+	route del -net 192.168.1.0 netmask 255.255.255.0 （删除路由条目）
+	route -C 查看缓冲表
+	route -n 查看本地路由表
+	traceroute 路由跟踪
+
+### 其他配置文件
+
+/etc/hosts(本地主机ip地址映射,可以有多个别名）。
+
+/etc/services(端口号与标准服务之间的对应关系）。
+
+/etc/sysconfig/network（设置主机名，网关，域名）。
+
+	HOSTANME=zjw.com(主机名）（需要重启计算机才有效）
+	GATEWAY=192.168.1.1（网关）
+
+
+
 # Other
 
-cat
+## cat
 
 ## rpm
 
@@ -75,7 +197,7 @@ cat
 	rpm -ql httpd
 
 
-tree
+## tree
 
 ## crontab
 

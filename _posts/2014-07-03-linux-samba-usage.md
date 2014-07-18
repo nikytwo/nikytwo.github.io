@@ -67,7 +67,15 @@ tags: [Linux]
 
 再进行挂载
 
-	mount -t cifs //192.168.1.1/share /mnt/share -o username=user
+	mount -t cifs //192.168.1.1/share /mnt/share -o username=user,password=passwd,uid=500,gid=500,dir_mode=0777,file_mode=0777
+
+其中
+
+username,password 为登录用户与密码;
+
+uid,gid 为挂载目录所属用户和组;
+
+dir_mode,file_mode 指定挂载目录的权限.
 
 
 

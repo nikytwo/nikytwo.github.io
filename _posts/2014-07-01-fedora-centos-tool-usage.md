@@ -70,6 +70,38 @@ tags: [Linux]
 -J : 使用Joliet格式(可显示 64个字符 ，并可使用中文，但是不能被MAC机所读取)的目录与文件名称。
 
 
+## [git-cvs](https://www.kernel.org/pub/software/scm/git/docs/git-cvsimport.html)
+
+cvs 迁移至 git 工具.
+
+安装
+
+	yum install git-cvs
+
+设置 CVSROOT 并登录
+
+	export CVSROOT=pserver:username@serverip:/home/cvs
+	cvs login
+
+导出
+
+	git cvsimport -v project_name -C project_name
+
+参数说明
+
+-v : 显示详细信息.
+
+-C : 到处目录名称,没有则新建.
+
+-d : CVSROOT
+
+**乱码问题**
+
+	vi /etc/sysconfig/i18n
+
+将编码转成 cvs 服务器的编码,然后同时将终端编码(putty等)的编码也转换成相同编码.
+
+
 
 ***
 

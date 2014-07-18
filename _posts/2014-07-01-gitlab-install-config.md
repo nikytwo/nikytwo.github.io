@@ -120,6 +120,12 @@ Gitlab 几乎都是通过编辑文件 `/etc/gitlab/gitlab.rb` 来进行配置的
 
 	gitlab_rails['gitlab_default_projects_limit'] = 10
 
+又如:
+
+修改备份目录以及备份保存时间
+
+	gitlab_rails['backup_path'] = "/mnt/gitlab/backups"
+	gitlab_rails['backup_keep_time'] = 604800	#(备份保留7天)
 
 
 #### URL
@@ -173,6 +179,23 @@ Gitlab 几乎都是通过编辑文件 `/etc/gitlab/gitlab.rb` 来进行配置的
 
 #### 数据库
 
+
+## 相关错误处理
+
+#### 无法使用 ssh 进行 push
+
+提示输入 `git@serverip` 的密码。
+
+使用 `ssh -vT git@serverip` 出现如下提示:
+
+	 Next authentication method: password
+
+处理办法:
+
+使用 setroubleshoot 查询出错信息,然后根据提示处理.
+
+	semanage fcontext -a -t ssh_home_t '/home/git/.ssh(/.*)?'
+	restorecon -Rv /home/git/.ssh
 
 
 
