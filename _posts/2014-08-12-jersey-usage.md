@@ -8,7 +8,7 @@ tags: [Java, REST]
 {% include JB/setup %}
 
 
-## Info
+## 1. Info
 
 Jersey是JAX-RS（JSR311）开源参考实现用于构建RESTful Web service。
 此外Jersey还提供一些额外的API和扩展机制，所以开发人员能够按照自己的需要对Jersey进行扩展。
@@ -17,18 +17,20 @@ Jersey是JAX-RS（JSR311）开源参考实现用于构建RESTful Web service。
 
 [软件文档][lnkDoc]
 
-## 依赖
+## 2. 依赖
 
-### 兼容性
+### 2.1. 兼容性
 
 Jersey 2.6 => java se 1.6+
+
 Jersey 2.7 => java se 1.7+
 
-### 使用
+### 2.2. 使用
 
-* 在应用服务器中使用
+* 在应用服务器(Servlet 容器)中使用
 
-```xml
+```
+
 	<dependency>
 		<groupId>org.glassfish.jersey.containers</groupId>
 		<!-- if your container implements Servlet API older than 3.0, use "jersey-container-servlet-core"  -->
@@ -41,31 +43,119 @@ Jersey 2.7 => java se 1.7+
 		<artifactId>jersey-client</artifactId>
 		<version>2.11</version>
 	</dependency>
+
 ```
 
-## JAX-RS 应用
+* Other
+
+	// TODO 待整理
+
+## 3. JAX-RS 应用
 
 [JAX-RS解析][lnkJaxRS]
 
-### Root Resource Classes
+### 3.1. Root Resource Classes
 
 Root Resource Classes 是使用 @Path 标注并且有一个方法被 @Path 或 HTTP 方法(@Get,@Put,@Post,@Delete等)标注.
 
-#### @Path
+#### 3.1.1. @Path
 
-#### @Get,@Put,@Post,@Delete...(Http 方法)
+@Path 注解是一个相对的 URI 路径.如:
 
-#### @Produces
+	@Path("/users/{username}")
 
-#### @Consumes
+将响应这个 URL: `http://example.com/users/Galileo`
 
-### 参数注解(@*Param)
+为了获取 username 的值,可以在请求方法的参数中使用 @PathParam 注解.
 
-* @DefaultValue
+
+	@Path("/users/{username}")
+	public class UserResource {
+
+		@GET
+		@Produces("text/xml")
+		public String getUser(@PathParam("username") String userName) {
+			...
+		}
+	}
+
+可以使用正则表到时来限定(username)参数.
+
+	@Path("users/{username: [a-zA-Z][a-zA-Z_0-9]*}")
+
+若 username 不匹配,将响应404页面.
+
+#### 3.1.2. @Get,@Put,@Post,@Delete...(Http 方法)
+
+@GET, @PUT, @POST, @DELETE 和 @HEAD 是 JAX-RS 中定义的资源方法注解,它们与 HTTP 里的方法是一一对应的.
+
+即使没有明确标注,JAX-RS 运行时也会默认自动支持 HEAD 和 OPTIONS 方法.
+
+#### 3.1.3. @Produces
+
+@Produces 可以应用与类和方法上.其用于指明将要返回给客户端的资源表述的 MIME 媒体类型.
+
+
+	@Path("/myResource")
+	@Produces("text/plain")
+	public class SomeResource {
+		@GET
+		public String doGetAsPlainText() {
+			...
+		}
+
+		@GET
+		@Produces("text/html")
+		public String doGetAsHtml() {
+			...
+		}
+	}
+
+上例中,方法中的媒体类型将覆盖类中定义的.
+
+可以对方法指定多个媒体类型.
+
+	@GET
+	@Produces({"application/xml", "application/json"})
+	public String doGetAsXmlOrJson() {
+		...
+	}
+
+可以指定媒体类型的 quality 因子.
+
+	@GET
+	@Produces({"application/xml; qs=0.9", "application/json"})
+	public String doGetAsXmlOrJson() {
+		...
+	}
+
+如果客户端同时接受"application/xml"和"application/json",在此例,服务器会返回"application/json",因为"application/xml"的 quality 因子比较低.
+
+#### 3.1.4. @Consumes
+
+@Consumes 用来指定可以接受客户端发送过来的 MIME 媒体类型，同样可以用于类或者方法，也可以指定多个 MIME 媒体类型.
+
+	@POST
+	@Consumes("text/plain")
+	public void postClichedMessage(String message) {
+		// Store the message
+	}
+
+注意:资源方法的返回值为 void,这表示客户端接受到的响应状态码将为204.
+
+### 3.2. 参数注解(@*Param)
+
+* @PathParam
+
+可以获取URI中指定规则的参数.
 
 * @QueryParam
 
-* @PathParam
+用于获取GET请求中的查询参数.
+
+* @DefaultValue
+
+可以为参数设置默认值.
 
 * @MatrixParam
 
@@ -75,27 +165,336 @@ Root Resource Classes 是使用 @Path 标注并且有一个方法被 @Path 或 H
 
 * @FormParam
 
+从POST请求的表单参数中获取数据.
+
 * @BeanParam
 
-### 子资源
+当请求参数很多时，比如客户端提交一个修改用户的PUT请求，请求中包含很多项用户信息。这时可以用@BeanParam
 
-### Root Resource classes 的生命周期
+	public class MyBeanParam {
+		@PathParam("p")
+		private String pathParam;
 
-### 注入规则
+		@MatrixParam("m")
+		@Encoded
+		@DefaultValue("default")
+		private String matrixParam;
 
-### @Context 的使用
+		@HeaderParam("header")
+		private String headerParam;
+
+		private String queryParam;
+
+		public MyBeanParam(@QueryParam("q") String queryParam) {
+			this.queryParam = queryParam;
+		}
+
+		public String getPathParam() {
+			return pathParam;
+		}
+		...
+	}
+
+	//Injection of MyBeanParam as a method parameter:
+	@POST
+	public void post(@BeanParam MyBeanParam beanParam, String entity) {
+		final String pathParam = beanParam.getPathParam(); // contains injected path parameter "p"
+		...
+	}
+
+### 3.3. 子资源
+
+	@Singleton
+	@Path("/printers")
+	public class PrintersResource {
+
+		@GET
+		@Produces({"application/json", "application/xml"})
+		public WebResourceList getMyResources() { ... }
+
+		@GET @Path("/list")
+		@Produces({"application/json", "application/xml"})
+		public WebResourceList getListOfPrinters() { ... }
+
+		@GET @Path("/jMakiTable")
+		@Produces("application/json")
+		public PrinterTableModel getTable() { ... }
+
+		@GET @Path("/jMakiTree")
+		@Produces("application/json")
+		public TreeModel getTree() { ... }
+
+		@GET @Path("/ids/{printerid}")
+		@Produces({"application/json", "application/xml"})
+		public Printer getPrinter(@PathParam("printerid") String printerId) { ... }
+
+		@PUT @Path("/ids/{printerid}")
+		@Consumes({"application/json", "application/xml"})
+		public void putPrinter(@PathParam("printerid") String printerId, Printer printer) { ... }
+
+		@DELETE @Path("/ids/{printerid}")
+		public void deletePrinter(@PathParam("printerid") String printerId) { ... }
+	}
+
+如果请求的 URL 为"printers",则上面没有使用 @Path 注解的方法将被调用.如果请求的 URL 为"printers/list",则自资源方法 getListOfPrinters 将被调用.
+
+	@Path("/item")
+	public class ItemResource {
+		@Context UriInfo uriInfo;
+
+		@Path("content")
+		public ItemContentResource getItemContentResource() {
+			return new ItemContentResource();
+		}
+
+		@GET
+		@Produces("application/xml")
+			public Item get() { ... }
+		}
+	}
+
+	public class ItemContentResource {
+
+		@GET
+		public Response get() { ... }
+
+		@PUT
+		@Path("{version}")
+		public void put(@PathParam("version") int version,
+						@Context HttpHeaders headers,
+						byte[] in) {
+			...
+		}
+	}
+
+如果请求的 URL 为"item/content",则 getItemContentResource 将被调用.
+
+	@Path("/item")
+	public class ItemResource {
+
+		@Path("/")
+		public ItemContentResource getItemContentResource() {
+			return new ItemContentResource();
+		}
+	}
+
+请求为"/item/locator"或为"/item",getItemContentResource 都会被调用.
+
+@Singletion
+
+	import javax.inject.Singleton;
+
+	@Path("/item")
+	public class ItemResource {
+		@Path("content")
+		public Class<ItemContentSingletonResource> getItemContentResource() {
+			return ItemContentSingletonResource.class;
+		}
+	}
+
+	@Singleton
+	public class ItemContentSingletonResource {
+		// this class is managed in the singleton life cycle
+	}
+
+programmatic resource model
+
+	import org.glassfish.jersey.server.model.Resource;
+
+	@Path("/item")
+	public class ItemResource {
+
+		@Path("content")
+		public Resource getItemContentResource() {
+			return Resource.from(ItemContentSingletonResource.class);
+		}
+	}
+
+### 3.4. Root Resource classes 的生命周期
+
+默认的生命周期是每个请求的,即对应每个请求都会有一个实例被创建.
+
+生命周期
+
+* 默认生命周期 @RequestScoped(or none)
+
+* Per-lookup @PerLookup
+
+* Singleton	@Singleton
+
+### 3.5. 注入规则
+
+### 3.6. @Context 的使用
+
+可以通过@Context 注释获取ServletConfig、ServletContext、HttpServletRequest、HttpServletResponse和HttpHeaders等对象.
+
+## 4. 应用部署与运行时
+
+### 4.1. JAX-RS Application 模型
+
+JAX-RS 提供了一个部署无关的虚类 Application 用以发布 root 资源和 provider classes. Web Service 可以继承这个类来发布自己的 root 资源和 provider classes.
+
+Jersey 也实现了自己的 Application 类 ResourceConfig.该类可以直接实例化或继承并在构造函数中进行配置来发布资源.
+
+	// 下面的 Application 会在部署时扫描"org.foo.rest"和"org.bar.rest"包中的 JAX-RS 组件
+	public class MyApplication extends ResourceConfig {
+		public MyApplication() {
+			packages("org.foo.rest;org.bar.rest");
+		}
+	}
+
+### 4.2. Classpath Scanning 配置
+
+	// TODO 待整理
 
 
-## 应用部署与运行时
+### 4.3. HTTP Server 部署
 
-### HTTP Server
+Java base HTTP servers 展示了一种简单灵活的方式来部署 Jersey 应用.Jersey 自定义的工厂方法可以返回正确的 HTTP server 实例.
 
-### 基于 Servlet 的部署
+#### 4.3.1. JDK HTTP Server
 
-#### Servlet 2.x Container
+	URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
+	ResourceConfig config = new ResourceConfig(MyResource.class);
+	HttpServer server = JdkHttpServerFactory.createHttpServer(baseUri, config);
 
-#### Servlet 3.x Container
+需要的依赖
 
+	<dependency>
+		<groupId>org.glassfish.jersey.containers</groupId>
+		<artifactId>jersey-container-jdk-http</artifactId>
+		<version>2.11</version>
+	</dependency>
+
+#### 4.3.2. Simple server
+
+	URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
+		ResourceConfig config = new ResourceConfig(MyResource.class);
+		SimpleContainer server = SimpleContainerFactory.create(baseUri, config);
+
+需要的依赖
+
+	<dependency>
+		<groupId>org.glassfish.jersey.containers</groupId>
+		<artifactId>jersey-container-simple-http</artifactId>
+		<version>2.11</version>
+	</dependency>
+
+#### 4.3.3. Jetty HTTP Server
+
+	URI baseUri = UriBuilder.fromUri("http://localhost/").port(9998).build();
+	ResourceConfig config = new ResourceConfig(MyResource.class);
+	Server server = JettyHttpContainerFactory.createServer(baseUri, config);
+
+需要的依赖
+
+	<dependency>
+		<groupId>org.eclipse.jetty</groupId>
+		<artifactId>jetty-server</artifactId>
+		<version>2.11</version>
+	</dependency>
+
+
+
+### 4.4. 基于 Servlet 的部署
+
+#### 4.4.1. Servlet 2.x Container
+
+* 作为 Servlet
+
+```
+
+	<web-app>
+		<servlet>
+			<servlet-name>MyApplication</servlet-name>
+			<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+			<init-param>
+				...
+			</init-param>
+		</servlet>
+		...
+		<servlet-mapping>
+			<servlet-name>MyApplication</servlet-name>
+			<url-pattern>/myApp/*</url-pattern>
+		</servlet-mapping>
+		...
+	</web-app>
+
+```
+
+* 作为 Servlet Filter
+
+```
+
+	<web-app>
+		<filter>
+			<filter-name>MyApplication</filter-name>
+			<filter-class>org.glassfish.jersey.servlet.ServletContainer</filter-class>
+			<init-param>
+				...
+			</init-param>
+		</filter>
+		...
+		<filter-mapping>
+			<filter-name>MyApplication</filter-name>
+			<url-pattern>/myApp/*</url-pattern>
+		</filter-mapping>
+		...
+	</web-app>
+
+```
+
+`<init-param>` 的内容可以如下定义.
+
+1. 自定义 Application 子类
+
+```
+
+	<init-param>
+		<param-name>javax.ws.rs.Application</param-name>
+		<param-value>org.foo.MyApplication</param-value>
+	</init-param>
+
+```
+
+2. 扫描Jersey包
+
+```
+
+	<init-param>
+		<param-name>jersey.config.server.provider.packages</param-name>
+		<param-value>
+			org.foo.myresources,org.bar.otherresources
+		</param-value>
+	</init-param>
+	<init-param>
+		<param-name>jersey.config.server.provider.scanning.recursive</param-name>
+		<param-value>false</param-value>
+	</init-param>
+
+```
+
+3. 指定具体的 resource 和 provider 类
+
+```
+
+	<init-param>
+		<param-name>jersey.config.server.provider.classnames</param-name>
+		<param-value>
+			org.foo.myresources.MyDogResource,
+			org.bar.otherresources.MyCatResource
+		</param-value>
+	</init-param>
+
+```
+
+#### 4.4.2. Servlet 3.x Container
+
+	// TODO 待整理
+
+## 5. MVC Templates
+
+	// TODO 待整理
 
 ***
 
