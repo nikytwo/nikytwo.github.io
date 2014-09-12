@@ -334,6 +334,15 @@ programmatic resource model
 
 JAX-RS 提供了一个部署无关的虚类 Application 用以发布 root 资源和 provider classes. Web Service 可以继承这个类来发布自己的 root 资源和 provider classes.
 
+	public class MyApplication extends Application {
+		@Override
+		public Set<Class<?>> getClasses() {
+			Set<Class<?>> s = new HashSet<Class<?>>();
+			s.add(HelloWorldResource.class);
+			return s;
+		}
+	}
+
 Jersey 也实现了自己的 Application 类 ResourceConfig.该类可以直接实例化或继承并在构造函数中进行配置来发布资源.
 
 	// 下面的 Application 会在部署时扫描"org.foo.rest"和"org.bar.rest"包中的 JAX-RS 组件
@@ -492,7 +501,150 @@ Java base HTTP servers 展示了一种简单灵活的方式来部署 Jersey 应�
 
 	// TODO 待整理
 
-## 5. MVC Templates
+## 5. 表述与响应
+
+### 5.1. 表述与 Java 类型
+
+1. All media types (\*/\*)
+
+	- byte[]
+
+	- java.lang.String
+
+	- java.io.Reader (inbound only)
+
+	- java.io.File
+
+	- javax.activation.DataSource
+
+	- javax.ws.rs.core.StreamingOutput (outbound only)
+
+2. XML media types (text/xml, application/xml and application/...+xml)
+
+	- javax.xml.transform.Source
+
+	- javax.xml.bind.JAXBElement
+
+	- Application supplied JAXB classes (types annotated with @XmlRootElement or@XmlType)
+
+3. Form content (application/x-www-form-urlencoded)
+
+	- MultivaluedMap<String,String>
+
+4. Plain text (text/plain)
+
+	- java.lang.Boolean
+
+	- java.lang.Character
+
+	- java.lang.Number
+
+### 5.2. 构造响应
+
+可以通过 `Response` 和 `Response.ResponseBuilder` 来构造并返回响应的附加信息.
+
+1. 返回 201 状态码
+
+	@POST
+	@Consumes("application/xml")
+	public Response post(String content) {
+	  URI createdUri = ...
+	  create(content);
+	  return Response.created(createdUri).build();
+	}
+
+2. 自定义天添加 Entity body 响应
+
+	@POST
+	@Consumes("application/xml")
+	public Response post(String content) {
+	  URI createdUri = ...
+	  String createdContent = create(content);
+	  return Response.created(createdUri).entity(Entity.text(createdContent)).build();
+	}
+
+### 5.3. WebApplicationException 和 响应的异常映射
+
+JAX-RS 允许定义 Java 异常与 HTTP 错误响应的直接映射.
+
+通过抛出 CustomNotFoundException 来向客户端返回一个错误的 HTTP 响应.
+
+	@Path("items/{itemid}/")
+	public Item getItem(@PathParam("itemid") String itemid) {
+	  Item i = getItems().get(itemid);
+	  if (i == null) {
+		throw new CustomNotFoundException("Item, " + itemid + ", is not found");
+	  }
+
+	  return i;
+	}
+
+具体应用程序异常的实现
+
+	public class CustomNotFoundException extends WebApplicationException {
+
+	  /**
+	  * Create a HTTP 404 (Not Found) exception.
+	  */
+	  public CustomNotFoundException() {
+		super(Responses.notFound().build());
+	  }
+
+	  /**
+	  * Create a HTTP 404 (Not Found) exception.
+	  * @param message the String that is the entity of the 404 response.
+	  */
+	  public CustomNotFoundException(String message) {
+		super(Response.status(Responses.NOT_FOUND).
+		entity(message).type("text/plain").build());
+	  }
+	}
+
+另一情况,最好通过自定义异常映射 provider 来映射一个已存在的异常.这个 provider 必须继承 ExceptionMapper<E extends Throwable> 接口.
+
+	@Provider
+	public class EntityNotFoundMapper implements ExceptionMapper<javax.persistence.EntityNotFoundException> {
+	  public Response toResponse(javax.persistence.EntityNotFoundException ex) {
+		return Response.status(404).
+		  entity(ex.getMessage()).
+		  type("text/plain").
+		  build();
+	  }
+	}
+
+若 Throwable 类是 WebApplicationException 的实例，并且 Response.hasEntity() 为真,将不执行 ExceptionMapper.toResponse 函数.
+
+### 5.4. Conditional GETs 和 304 响应
+
+	public SparklinesResource(
+	  @QueryParam("d") IntegerList data,
+	  @DefaultValue("0,100") @QueryParam("limits") Interval limits,
+	  @Context Request request,
+	  @Context UriInfo ui) {
+	  if (data == null) {
+		throw new WebApplicationException(400);
+	  }
+
+	  this.data = data;
+	  this.limits = limits;
+
+	  if (!limits.contains(data)) {
+		throw new WebApplicationException(400);
+	  }
+
+	  this.tag = computeEntityTag(ui.getRequestUri());
+
+	  if (request.getMethod().equals("GET")) {
+		Response.ResponseBuilder rb = request.evaluatePreconditions(tag);
+		if (rb != null) {
+		  throw new WebApplicationException(rb.build());
+		}
+	  }
+	}
+
+
+
+## . MVC Templates
 
 	// TODO 待整理
 

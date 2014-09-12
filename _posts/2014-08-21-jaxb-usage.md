@@ -20,17 +20,16 @@ JAXB 2.0是JDK 1.6的组成部分。JAXB 2.2.3是JDK 1.7的组成部分。在实
 ## Class & Interface
 
 * AXBContext类，是应用的入口，用于管理XML/Java绑定信息。
+
 * Marshaller接口，将Java对象序列化为XML数据。
+
 * Unmarshaller接口，将XML数据反序列化为Java对象。
 
-```java
-	JAXBContext jc = JAXBContext.newInstance( "com.acme.foo" );
+	JAXBContext jc = JAXBContext.newInstance("com.acme.foo");
 	Unmarshaller u = jc.createUnmarshaller();
-	Object element = u.unmarshal( new File( "foo.xml" ) );
+	Object element = u.unmarshal( new File("foo.xml"));
 	Marshaller m = jc.createMarshaller();
-	m.marshal( element, ... );
-```
-
+	m.marshal(element, ...);
 
 ## 常用注解
 

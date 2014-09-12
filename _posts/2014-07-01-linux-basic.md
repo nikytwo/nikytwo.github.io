@@ -7,15 +7,65 @@ tags: [Linux]
 ---
 {% include JB/setup %}
 
-# 目录文件
+# 基本命令
 
-ls
+## 目录和文件处理
 
-mkdir
+* ls
 
-mv
+列出目录下的内容.
 
-cp
+	ls -l
+
+* mkdir
+
+建立目录.
+
+	mkdir dirname
+
+* cd
+
+更换工作目录.
+
+	cd dirname
+
+* pwd
+
+显示当前工作目录.
+
+* cp
+
+拷贝文件及目录
+
+* mv
+
+移动(重命名)文件
+
+* rm
+
+删除文件或目录
+
+	rm -r dirname
+
+## 文本处理
+
+## 系统管理
+
+## 文件系统
+
+* du
+
+查看目录或文件所占用磁盘空间大小.
+
+* df
+
+检查文件系统的磁盘空间占有情况.
+
+* fdisk
+
+* mkfs
+
+* /etc/fstab
 
 mount/umount
 
