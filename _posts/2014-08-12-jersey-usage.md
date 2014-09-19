@@ -643,6 +643,21 @@ JAX-RS 允许定义 Java 异常与 HTTP 错误响应的直接映射.
 	}
 
 
+## 15. 安全
+
+### 15.1. SecurityContext
+
+
+## 16. 对 WADL 的支持
+
+默认情况下 jersey 是自动开启 WADL 的支持的.默认 `Path("application.wadl")`
+
+要禁用 WADL ,请在应用中(web.xml 或 Application.getProperties())进行如下配置:
+
+	jersey.config.server.wadl.disableWadl=true
+
+
+
 
 ## . MVC Templates
 
