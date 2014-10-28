@@ -3,7 +3,7 @@ layout: post
 title: "Django REST framework 使用"
 description: "Django REST framework 使用"
 category: lib
-tags: [python, REST, RESTful]
+tags: [Python, REST, RESTful]
 ---
 {% include JB/setup %}
 

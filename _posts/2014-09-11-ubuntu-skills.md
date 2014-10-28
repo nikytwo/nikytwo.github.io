@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Ubuntu Skills"
-description: ""
-category: 
-tags: []
+title: "Ubuntu 技巧锦集"
+description: "Ubuntu 技巧锦集"
+category: learning
+tags: [Linux]
 ---
 {% include JB/setup %}
 
