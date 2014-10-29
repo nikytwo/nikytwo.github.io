@@ -21,3 +21,24 @@ Yeoman 主要有三部分组成：
 * bower（包管理器）。
 
 这三个工具是分别独立开发的，但是需要配合使用，来实现我们高效的工作流模式。
+
+
+# Require
+
+* Node.js v0.10.x+
+* npm v1.4.3+
+* git
+
+# Install Yeoman 工具集
+
+	sudo npm install --global yo bower grunt-cli
+
+# generator
+
+一个 generator 能帮助构建项目目录，下载项目依赖等工作。
+
+### install a generator
+
+	sudo npm install -g generator-***
+
+
