@@ -41,4 +41,28 @@ Yeoman 主要有三部分组成：
 
 	sudo npm install -g generator-***
 
+# scaffold 应用，通过 generator
 
+### 创建一个项目文件夹
+
+	mkdir mytodo && cd mytodo
+
+### 通过 generator 建立应用的框架
+
+	yo angular
+
+### 配置
+
+运行上面的命令后，根据提示进行应用的配置。完成后应用的大体框架便出来了。
+
+# Preview 应用 in the browser
+
+Yeoman 已经包含了我们构建本地服务的所需。
+
+### 运行服务
+
+	grunt serve
+
+服务的默认端口为：9000。
+停止服务，请按 Ctrl+C。
+但在我们开发应用的时候，我们不需要停止服务，然后在重启它以查看效果，grunt 会自动监控项目下文件的变化，并实时更新服务。
