@@ -102,6 +102,19 @@ cvs 迁移至 git 工具.
 将编码转成 cvs 服务器的编码,然后同时将终端编码(putty等)的编码也转换成相同编码.
 
 
+## ffmpeg/mencoder
+
+音视频转换工具。
+
+安装：
+
+	yum install ffmpeg libvpx
+	yum install mencoder
+
+使用：
+
+	ffmpeg -i /path/video.vob /path/video.avi
+
 
 ***
 
