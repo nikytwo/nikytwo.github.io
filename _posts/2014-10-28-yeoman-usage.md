@@ -102,5 +102,12 @@ bower 同时会将添加新依赖至相应 HTML 文件中。
 
 ## 9.2. 更新 Karma 配置文件
 
-打开 karma.conf.ja 添加应用的相关依。
+打开 karma.conf.ja 添加应用的相关依赖。
+
+# 10. 构建与发布
+
+	grunt
+
+	grunt serve:dist
+
 
