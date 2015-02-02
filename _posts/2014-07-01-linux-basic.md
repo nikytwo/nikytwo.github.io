@@ -9,6 +9,47 @@ tags: [Linux]
 
 # 基本命令
 
+## 使用帮助
+
+* whatis & info
+
+`whatis` 查看命令的简要说明，要更详细的信息则使用 `info` 。
+
+	whatis command
+
+	info command
+
+	// 正则匹配(适用于只记住部分命令的场合)
+	whatis -w "loca*"
+
+* man
+
+查询命令的详细说明文档。
+
+	man command
+
+	// 查询说明文档内的关键字
+	man -k keyword
+
+在man的帮助手册中，将帮助文档分为了9个类别，对于有的关键字可能存在多个类别中，我们就需要指定特定的类别来查看；（一般我们查询bash命令，归类在1类中）
+
+man页面所属的分类标识(常用的是分类1和分类3)
+
+1.用户可以操作的命令或者是可执行文件
+2.系统核心可调用的函数与工具等
+3.一些常用的函数与数据库
+4.设备文件的说明
+5.设置文件或者某些文件的格式
+6.游戏
+7.惯例与协议等。例如Linux标准文件系统、网络协议、ASCⅡ，码等说明内容
+8.系统管理员可用的管理条令
+9.与内核有关的文件
+
+	// 查询特定分类
+	man 3 printf
+
+
+
 ## 目录和文件处理
 
 * ls
@@ -41,11 +82,45 @@ tags: [Linux]
 
 移动(重命名)文件
 
+* touch
+
 * rm
 
 删除文件或目录
 
 	rm -r dirname
+
+* chgrp
+
+* chown
+
+修改文件属性
+
+	chown [-R] username[:group] filename
+
+`-R` 递归修改目录下的多有文件
+
+* chmod
+
+修改文件权限
+
+- u = owner
+- g = group
+- o = other
+- a = all
+
+
+例子:
+
+	chmod 700 .bashrc
+
+	chmod a-x /etc/bashrc
+
+	chmod ugo-x .bashrc
+
+	chmod -x .bashrc
+
+
 
 ## 文本处理
 
@@ -74,11 +149,38 @@ mount/umount
 
 # 用户权限
 
-chmod
+* 基本命令
+/etc/passwd
+
+/etc/shadow
+
+/etc/group
+
+- useradd
+
+- usermod
+
+- userdel
+
+- passwd
+
+- groupadd
+
+- groupmod
+
+- groupdel
+
+- gpasswd
+
+
+* sudo
+
+/etc/sudoers
+
+su
+
 
 # 帮助与查询
-
-man
 
 locate
 
@@ -371,4 +473,16 @@ Crontab 文件内容格式如下:
 用于生成 yum 仓库所必须的一些信息，这些信息都存放在 repodata/ 目录底下
 
 	createrepo /path/packages
+
+***
+
+# 参考
+
+[Linux基础] (http://linuxtools-rst.readthedocs.org/zh_CN/latest/base/index.html)
+
+[鸟哥的Linux私房菜] (http://vbird.dic.ksu.edu.tw/)
+
+[Linux 命令行] (http://billie66.github.io/TLCL/index.html)
+
+[Linux就是这个范儿] ()
 

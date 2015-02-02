@@ -89,7 +89,7 @@ tags: [Java,Test]
 验证 `add` 方法是否被调用了一次
 
 	verify(mockedList, times(1)).add("once");
-	verify(mockedList, never()).addd("twice");
+	verify(mockedList, never()).add("twice");
 
 还可以通过 `atLeast(int i)` 和 `atMost(int i)` 来替代 `time(int i)` 来验证被调用的次数最小值和最大值；`never()` 验证从未调用。
 
@@ -117,11 +117,11 @@ tags: [Java,Test]
 
 	verify(mock, timeout(200)).someMethod();
 
-严重超时调用2次.
+验证超时调用2次.
 
 	verify(mock, timeout(200).times(2)).someMethod();
 
-严重超时调用至少2次.
+验证超时调用至少2次.
 
 	verify(mock, timeout(200).atLeast(2)).someMethod();
 
@@ -129,6 +129,12 @@ tags: [Java,Test]
 
 	// TODO 待研究
 	verify(mock, new Timeout(100, yourOwnVerificationMode)).someMethod();
+
+
+## Spy
+
+方法 spy() 可以包含一个真实的对象。
+每次调用，除非特出指定，委托给该真实对象的调用。
 
 
 ## 使用注解 @Mock, @Captor, @Spy, @InjectMocks

@@ -27,6 +27,18 @@ tags: [Java,Test]
 
 [PowerMock][powermock] 优点:能mock静态,final,私有方法等.
 
+## 使用
+
+### 编写测试前
+
+编写测试时，须如下：
+
+	@RunWith(PowerMockRunner.class)
+	@PrepareForTest( { YourClassWithEgStaticMethod.class })
+	public class YourTestCase {
+	...
+	}
+
 
 
 	// TODO 待整理
