@@ -496,11 +496,11 @@ Crontab 文件内容格式如下:
 
 # 参考
 
-[Linux基础] (http://linuxtools-rst.readthedocs.org/zh_CN/latest/base/index.html)
+[Linux基础][http://linuxtools-rst.readthedocs.org/zh_CN/latest/base/index.html]
 
-[鸟哥的Linux私房菜] (http://vbird.dic.ksu.edu.tw/)
+[鸟哥的Linux私房菜][http://vbird.dic.ksu.edu.tw/]
 
-[Linux 命令行] (http://billie66.github.io/TLCL/index.html)
+[Linux 命令行][http://billie66.github.io/TLCL/index.html]
 
-[Linux就是这个范儿] ()
+[Linux就是这个范儿][]
 
