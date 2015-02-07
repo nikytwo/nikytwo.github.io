@@ -89,7 +89,7 @@ tags: [Java,Test]
 验证 `add` 方法是否被调用了一次
 
 	verify(mockedList, times(1)).add("once");
-	verify(mockedList, never()).addd("twice");
+	verify(mockedList, never()).add("twice");
 
 还可以通过 `atLeast(int i)` 和 `atMost(int i)` 来替代 `time(int i)` 来验证被调用的次数最小值和最大值；`never()` 验证从未调用。
 
@@ -117,11 +117,11 @@ tags: [Java,Test]
 
 	verify(mock, timeout(200)).someMethod();
 
-严重超时调用2次.
+验证超时调用2次.
 
 	verify(mock, timeout(200).times(2)).someMethod();
 
-严重超时调用至少2次.
+验证超时调用至少2次.
 
 	verify(mock, timeout(200).atLeast(2)).someMethod();
 
@@ -129,6 +129,19 @@ tags: [Java,Test]
 
 	// TODO 待研究
 	verify(mock, new Timeout(100, yourOwnVerificationMode)).someMethod();
+
+
+## Spy
+
+**局部模拟**
+
+在使用局部模拟时，被创建出来的模拟对象依然是原系统对象。
+虽然可以使用方法 `When().thenReturn()` 来指定某些具体方法的返回值，但是没有被用此函数修改过的函数依然按照系统原始类的方式来执行。
+
+
+## callRealMethod
+
+也是**局部模拟**，但行为与 `spy` 相反。
 
 
 ## 使用注解 @Mock, @Captor, @Spy, @InjectMocks

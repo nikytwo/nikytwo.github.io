@@ -135,6 +135,12 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 需要注意的是， [jetty-maven-plugin][jetty] 并不是宿主于Apache或Codehaus的官方插件，因此使用的时候需要额外的配置 `settings.xml` 的 `pluginGroups` 元素，将 `org.mortbay.jetty` 这个 `pluginGroup` 加入。
 
 
+## Other
+
+### _maven.repositories 说明
+
+	// TODO
+
 ***
 
 [archetype]: http://maven.apache.org/archetype/maven-archetype-plugin/
