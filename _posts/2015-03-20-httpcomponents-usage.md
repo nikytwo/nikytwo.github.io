@@ -30,8 +30,6 @@ HttpComponents 也就是以前的httpclient项目，可以用来提供高效的�
 
 使用Maven管理
 
-```xml
-
 	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
@@ -42,8 +40,6 @@ HttpComponents 也就是以前的httpclient项目，可以用来提供高效的�
 		<artifactId>httpmime</artifactId>
 		<version>${httpcomponents.version}</version>
 	</dependency>
-
-```
 
 
 # 3. 使用
@@ -57,8 +53,6 @@ HttpComponents 也就是以前的httpclient项目，可以用来提供高效的�
 
 `HttpClient`在4.2版本开始增加了Fluent方式来使用，使代码更简洁。
 
-```java
-
 	URI uri = URI.create("http://www.sina.com");
 	Request request = Request.Post(uri).bodyForm(
 			Form.form().add("username", "zhangsan")
@@ -66,8 +60,6 @@ HttpComponents 也就是以前的httpclient项目，可以用来提供高效的�
 				.build());
 	request.addHeader("User-Agent", "Ahopedog/5.0 (Linux NT 5.1; rv:5.0) Gecko/20100101 FireDog/5.0");
 	request.setHeader("Accept-Charset", "GB2312,utf-8;q=0.7,*;q=0.7");
-
-```
 
 
 ***
