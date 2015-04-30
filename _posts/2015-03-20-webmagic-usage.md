@@ -30,6 +30,8 @@ tags: [Java]
 
 WebMagic 0.5.2 已经多了个`Selectable.nodes()`方法,可以返回可迭代的对象了.但仍然有些错误存在.
 
+## 2.2. 
+
 
 ***
 
