@@ -10,8 +10,11 @@ tags: [Java]
 
 # Ioc
 
+	TODO
+
 ## context:annotation-config
 
+	TODO
 
 # web mvc
 
@@ -32,6 +35,7 @@ DispatcherServlet --> View
 
 ## DispatcherServlet
 
+前置控制器,是一个Servlet，配置在web.xml文中。
 主要用作职责调度工作，本身主要用于控制流程，主要职责如下：
 
 1. 文件上传解析，如果请求类型是multipart将通过MultipartResolver进行文件上传解析；
@@ -46,9 +50,8 @@ DispatcherServlet --> View
 
 ### 配置
 
-* web.xml 声明 **DispatcherServlet**
+web.xml 中声明 **DispatcherServlet**
 
-```
 	<servlet>
 		<servlet-name>chapter2</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -58,7 +61,6 @@ DispatcherServlet --> View
 		<servlet-name>chapter2</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-```
 
 该DispatcherServlet默认使用WebApplicationContext作为上下文，Spring默认配置文件为“/WEB-INF/[servlet名字]-servlet.xml”。
 
@@ -74,7 +76,6 @@ namespace: WebApplicationContext命名空间。默认值是[server-name]-servlet
 
 因此我们可以添加初始化参数,如下:
 
-```
 	<servlet>
 		<servlet-name>springServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -93,11 +94,9 @@ namespace: WebApplicationContext命名空间。默认值是[server-name]-servlet
 		<servlet-name>springServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-```
 
-* web.xml 配置上下文载入器(旧版Servlet2.3容器使用`ContextLoaderListener`)
+web.xml 中配置上下文载入器(旧版Servlet2.3容器使用`ContextLoaderListener`)
 
-```
 	<context-param>
 	  <param-name>contextConfigLocation</param-name>
 	  <param-value>
@@ -108,7 +107,7 @@ namespace: WebApplicationContext命名空间。默认值是[server-name]-servlet
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-```
+
 如上配置是Spring集成Web环境的通用配置；一般用于加载除Web层的Bean（如DAO、Service等），以便于与其他任何Web框架集成。
 contextConfigLocation：表示用于加载Bean的配置文件；
 contextClass：表示用于加载Bean的ApplicationContext实现类，默认WebApplicationContext。
@@ -140,11 +139,16 @@ Spring 3.1 使用新的 @Contoller 和 @RequestMapping 注解支持类：处理�
 
 ### 相关配置
 
-`<context:component-scan>` : 扫描并注入组件/Bean/控制器等
+`<context:component-scan>`: 扫描并注入组件(@Service,@Repository,@Component)/Bean/控制器等
 
-`<mvc:annotation-driven />` : 相当于注册了DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter两个bean
+`<mvc:annotation-driven />`: 相当于注册了DefaultAnnotationHandlerMapping和AnnotationMethodHandlerAdapter两个bean,是spring MVC为@Controllers分发请求所必须的。
+并提供了数据绑定支持，@NumberFormatannotation支持，@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。
 
-`<mvc:default-servlet-handler/>` : 找不到的请求映射到默认的servlet
+`<mvc:interceptors/>`: 
+
+`<mvc:default-servlet-handler/>`: 找不到的请求映射到默认的servlet
+
+`<mvc:resources />`(spring3.0.4提供): 
 
 ## 拦截器
 
@@ -172,7 +176,23 @@ HandlerInterceptorAdapter
 
 ### 配置
 
-```
+方式1
+
+	<mvc:interceptors>
+		<bean class="com.app.mvc.MyInteceptor" />
+	</mvc:interceptors>
+
+方式2
+
+	<mvc:interceptors >
+		<mvc:interceptor>
+			<mvc:mapping path="/user/*" />
+			<bean class="com.mvc.MyInteceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+方式3
+
 	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
 		<property name="interceptors">
 			<list>
@@ -183,7 +203,6 @@ HandlerInterceptorAdapter
 			</list>
 		</property>
 	</bean>
-```
 
 ## 视图
 
