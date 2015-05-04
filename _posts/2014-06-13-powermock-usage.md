@@ -172,11 +172,11 @@ tags: [Java,Test]
 
 # 参考
 
-[PowerMock 简介][http://www.ibm.com/developerworks/cn/java/j-lo-powermock]
+[PowerMock 简介](http://www.ibm.com/developerworks/cn/java/j-lo-powermock)
 
-[玩花招的PowerMock][http://agiledon.github.io/blog/2013/11/21/play-trick-with-powermock]
+[玩花招的PowerMock](http://agiledon.github.io/blog/2013/11/21/play-trick-with-powermock)
 
-[使用Powermock进行单元测试，以及常见问题的处理][http://www.cnblogs.com/jiyuqi/p/3564621.html]
+[使用Powermock进行单元测试，以及常见问题的处理](http://www.cnblogs.com/jiyuqi/p/3564621.html)
 
 
 [jmock]: http://jmock.org/

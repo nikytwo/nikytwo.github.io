@@ -2,7 +2,7 @@
 layout: post
 title: "Linux 基础之 LVM 的使用"
 description: "Linux 基础之 LVM 的使用"
-category: learing
+category: learning
 tags: [Linux]
 ---
 {% include JB/setup %}
