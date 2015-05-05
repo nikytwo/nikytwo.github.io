@@ -3,23 +3,24 @@
 permalink: /:categories/:year/:month/:day/:title 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
-pygments: true
+#pygments: true
 
-#highlighter: pygments
-markdown: kramdown
-kramdown:
-    input:  GFM
-    auto_ids: true
-    auto_id_prefix: 'id-'
+highlighter: pygments
+#markdown: kramdown
+#kramdown:
+#    input:  GFM
+#    auto_ids: true
+#    auto_id_prefix: 'id-'
 
-#markdown: redcarpet
-#redcarpet:
-#  extensions:
-#    - fenced_code_blocks
-#    - no_intra_emphasis
-#    - strikethrough
-#    - autolink
-#    - tables
+markdown: redcarpet
+redcarpet:
+  extensions:
+    - fenced_code_blocks
+    - strikethrough
+    - no_intra_emphasis
+    - autolink
+    - tables
+    - with_toc_data
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
