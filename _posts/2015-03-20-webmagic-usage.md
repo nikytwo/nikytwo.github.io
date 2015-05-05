@@ -18,15 +18,17 @@ tags: [Java]
 开始使用`Scrapy`时还不是很理解为什返回可迭代对象的,当使用`WebMagic`爬取表格时,发现它只能按列爬取,而不能按行爬取,当需要对行进行再处理时,`WebMagic`就显得很麻烦了.
 而因为`Scrapy`返回的时可迭代对象,所以是可以按行进行处理的.
 
-	// WebMagic 只能一列一列处理
-	Page.getHtml.xpath("//tr/td[1]")
-	Page.getHtml.xpath("//tr/td[2]")
+```java
+// WebMagic 只能一列一列处理
+Page.getHtml.xpath("//tr/td[1]")
+Page.getHtml.xpath("//tr/td[2]")
 
-	// Scrapy 能一行一行处理
-	trs = response.xpath("//tr")
-	for tr in trs:
-		tr.xpath("td")
-		...
+// Scrapy 能一行一行处理
+trs = response.xpath("//tr")
+for tr in trs:
+	tr.xpath("td")
+	...
+```
 
 WebMagic 0.5.2 已经多了个`Selectable.nodes()`方法,可以返回可迭代的对象了.但仍然有些错误存在.
 

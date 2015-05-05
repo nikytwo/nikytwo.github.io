@@ -10,11 +10,11 @@ tags: [Java]
 
 # Ioc
 
-	TODO
+	//TODO
 
 ## context:annotation-config
 
-	TODO
+	//TODO
 
 # web mvc
 
@@ -52,15 +52,17 @@ DispatcherServlet --> View
 
 web.xml 中声明 **DispatcherServlet**
 
-	<servlet>
-		<servlet-name>chapter2</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>chapter2</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+```xml
+<servlet>
+	<servlet-name>chapter2</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>chapter2</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+```
 
 该DispatcherServlet默认使用WebApplicationContext作为上下文，Spring默认配置文件为“/WEB-INF/[servlet名字]-servlet.xml”。
 
@@ -76,37 +78,41 @@ namespace: WebApplicationContext命名空间。默认值是[server-name]-servlet
 
 因此我们可以添加初始化参数,如下:
 
-	<servlet>
-		<servlet-name>springServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>
-				/WEB-INF/spring-mvc.xml
-				/WEB-INF/spring-service.xml
-				/WEB-INF/spring-data.xml
-				/WEB-INF/spring-security.xml
-			</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>springServlet</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
+```xml
+<servlet>
+	<servlet-name>springServlet</servlet-name>
+	<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+	<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/spring-mvc.xml
+			/WEB-INF/spring-service.xml
+			/WEB-INF/spring-data.xml
+			/WEB-INF/spring-security.xml
+		</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>springServlet</servlet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+```
 
 web.xml 中配置上下文载入器(旧版Servlet2.3容器使用`ContextLoaderListener`)
 
-	<context-param>
-	  <param-name>contextConfigLocation</param-name>
-	  <param-value>
-		  classpath:spring-common-config.xml,
-		  classpath:spring-budget-config.xml
-	  </param-value>
-	</context-param>
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
+```xml
+<context-param>
+  <param-name>contextConfigLocation</param-name>
+  <param-value>
+	  classpath:spring-common-config.xml,
+	  classpath:spring-budget-config.xml
+  </param-value>
+</context-param>
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+</listener>
+```
 
 如上配置是Spring集成Web环境的通用配置；一般用于加载除Web层的Bean（如DAO、Service等），以便于与其他任何Web框架集成。
 contextConfigLocation：表示用于加载Bean的配置文件；
@@ -176,33 +182,39 @@ HandlerInterceptorAdapter
 
 ### 配置
 
-方式1
+* 方式1
 
-	<mvc:interceptors>
-		<bean class="com.app.mvc.MyInteceptor" />
-	</mvc:interceptors>
+```xml
+<mvc:interceptors>
+	<bean class="com.app.mvc.MyInteceptor" />
+</mvc:interceptors>
+```
 
-方式2
+* 方式2
 
-	<mvc:interceptors >
-		<mvc:interceptor>
-			<mvc:mapping path="/user/*" />
-			<bean class="com.mvc.MyInteceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
+```xml
+<mvc:interceptors >
+	<mvc:interceptor>
+		<mvc:mapping path="/user/*" />
+		<bean class="com.mvc.MyInteceptor"></bean>
+	</mvc:interceptor>
+</mvc:interceptors>
+```
 
-方式3
+* 方式3
 
-	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
-		<property name="interceptors">
-			<list>
-				<ref bean="handlerInterceptor1"/>
-				<ref bean="handlerInterceptor2"/>
-				...
-				<ref bean="handlerInterceptorn"/>
-			</list>
-		</property>
-	</bean>
+```xml
+<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	<property name="interceptors">
+		<list>
+			<ref bean="handlerInterceptor1"/>
+			<ref bean="handlerInterceptor2"/>
+			...
+			<ref bean="handlerInterceptorn"/>
+		</list>
+	</property>
+</bean>
+```
 
 ## 视图
 
