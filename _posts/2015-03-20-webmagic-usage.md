@@ -5,7 +5,6 @@ description: "WebMagic 网络爬虫使用"
 category: Lib
 tags: [Java]
 ---
-{% include JB/setup %}
 
 # 1. info
 项目主页:[http://webmagic.io/](http://webmagic.io/)

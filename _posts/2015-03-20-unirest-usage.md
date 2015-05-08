@@ -5,7 +5,6 @@ description: "Unirest 使用"
 category: Lib
 tags: [Java,Python,NodeJS,Ruby]
 ---
-{% include JB/setup %}
 
 
 

@@ -58,11 +58,10 @@ redcarpet:
     - strikethrough
     - autolink
     - tables
+    - with_toc_data
 ```
 
 这种配置可以按照 <code>```</code> 这样的方式, 自动链接,代码块 等基本功能都可以满足了.
-
-	// TODO 自己本地服务可以高亮，但在 github 上却不行。
 
 * karkdown
 
@@ -99,6 +98,9 @@ kramdown:
 <script> hljs.initHighlightingOnLoad(); </script>
 ```
 
+# toc生成目录
+
+	// TOOD
 
 ***
 
@@ -112,3 +114,4 @@ kramdown:
 
 [jekyll bootstrap更改主题theme](http://blog.csdn.net/itmyhome1990/article/details/42080161)
 
+[ztree_toc](http://i5ting.github.io/i5ting_ztree_toc/)
