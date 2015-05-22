@@ -14,7 +14,7 @@ Logstash 是一个应用程序日志、事件的传输、处理、管理和搜�
 Logstash 现在是 ElasticSearch 家族成员之一。
 Logstash 本身提供了强大的存储、查询和分析日志的功能(实际是嵌入了 ElasticSearch 和 Kibana)。但当配 ElasticSearch(后端数据存储) 和 Kibana(前端展示) 使用时，它做的就是传输日志的苦事。
 
-下图(来至1.3.*前的官方文档)展示 Logstash、ElasticSearch 和 Kibana 的关系。
+下图(来至1.3.*前的官方文档)展示 Logstash、ElasticSearch 和 Kibana(Web Interface) 的关系。
 
 ![](http://logstash.net/docs/1.3.3/tutorials/getting-started-centralized-overview-diagram.png)
 
