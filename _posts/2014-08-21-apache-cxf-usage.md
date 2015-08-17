@@ -3,7 +3,7 @@ layout: post
 title: "Apache CXF 使用"
 description: "Apache CXF 使用"
 category: Lib
-tags: [Java,RESTful,JAX-RS,JAX-WS,Web Services,SAAJ,JMS,JBI]
+tags: [Java,REST,JAX-RS,JAX-WS,Web Services,SAAJ,JMS,JBI]
 ---
 {% include JB/setup %}
 

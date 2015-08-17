@@ -3,7 +3,7 @@ layout: post
 title: "自动化测试: Karma+Jasmine 使用文档"
 description: "使用 Karma+Jasmine 进行自动化测试"
 category: Lib
-tags: [Javascript, Test]
+tags: [javascript, Test]
 ---
 
 ## Info

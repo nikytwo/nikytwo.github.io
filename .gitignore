@@ -7,6 +7,7 @@ _theme_packages/*
 Thumbs.db
 .DS_Store
 *.swp
+*~
 
 !.gitkeep
 
