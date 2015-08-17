@@ -2,8 +2,8 @@
 layout: post
 title: "JavaScript 单元测试 QUnit 使用文档"
 description: "JavaScript 单元测试 QUnit 使用文档"
-category: Lib, Test
-tags: [Javascript]
+category: Lib
+tags: [Javascript, Test]
 ---
 
 ## Info
