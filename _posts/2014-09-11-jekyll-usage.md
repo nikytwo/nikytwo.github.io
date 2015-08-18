@@ -102,16 +102,26 @@ kramdown:
 
 	// TOOD
 
+
+# 常用命令
+
+```Bash
+// 列出所有可用的 rake 命令
+rake --tasks
+
+rake post title="your title"
+
+```
+
 ***
 
 # 参考
 
-[Jekyll 中文文档](http://jekyll.bootcss.com/docs/home/)
+- [Jekyll 中文文档](http://jekyll.bootcss.com/docs/home/)
+- [jekyll kramdown 语法高亮配置](http://noyobo.com/2014/10/19/jekyll-kramdown-highlight.html)
+- [Jekyll的中的代码高亮](http://yansu.org/2013/04/22/highlight-of-jekyll.html)
+- [jekyll bootstrap更改主题theme](http://blog.csdn.net/itmyhome1990/article/details/42080161)
+- [ztree_toc](http://i5ting.github.io/i5ting_ztree_toc/)
+- [Github Pages极简教程](http://yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/)
+- [rake 命令参考](http://guides.ruby-china.org/command_line.html#rake)
 
-[jekyll kramdown 语法高亮配置](http://noyobo.com/2014/10/19/jekyll-kramdown-highlight.html)
-
-[Jekyll的中的代码高亮](http://yansu.org/2013/04/22/highlight-of-jekyll.html)
-
-[jekyll bootstrap更改主题theme](http://blog.csdn.net/itmyhome1990/article/details/42080161)
-
-[ztree_toc](http://i5ting.github.io/i5ting_ztree_toc/)
