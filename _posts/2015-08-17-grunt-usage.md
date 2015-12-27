@@ -16,16 +16,14 @@ tags: [javascript]
 
 # Gruntfile 配置文件
 
-## "wrapper" 函数
-
-每一份 Gruntfile （和grunt插件）都遵循同样的格式，你所书写的Grunt代码必须放在此函数内：
 
 ```javascript
+// 每一份 Gruntfile （和grunt插件）都遵循同样的格式，你所书写的Grunt代码必须放在此函数内
 module.exports = function (grunt) {
 	// grunt 相关的东西都在这里
 
 	grunt.initConfig({
-		// 任务配置在这里
+		// 项目和任务配置在这里
 		jshint: { /* jshint的参数 */ },
 		concat: { /* concat的参数 */ },
 		uglify: { /* uglify的参数 */ },
@@ -36,15 +34,19 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// 每行registerTask定义一个任务
-	grunt.registerTask('default', ['jshint', 'concat', 'uglify']);	// 这是默认任务
+	// default 是 grunt 的默认任务，执行`grunt`命令时将执行默认任务
+	grunt.registerTask('default', ['jshint', 'concat', 'uglify']);	
+	// 定义任务名称为 check
 	grunt.registerTask('check', ['jshint']);
+
+	// 还可以自定义任务
+	grunt.registerTask('default', 'Log some stuff.', function() {
+		grunt.log.write('Logging some stuff ...').ok();
+	});
 	
 };
 ```
 
-## grunt.initConfig 项目和任务的配置
-
-	// TODO
 
 
 # 参考
