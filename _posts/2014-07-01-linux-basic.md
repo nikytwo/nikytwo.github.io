@@ -265,6 +265,14 @@ man页面所属的分类标识(常用的是分类1和分类3)
 
 ## 1.4. 系统管理
 
+### 时间
+
+* vi /etc/sysconfig/clock
+* hwclock
+* clock
+* date
+* ntpdate
+
 
 ## 1.5. 磁盘管理
 

@@ -57,6 +57,12 @@ tags: [Linux]
 
 查询共享内容
 
+首先要安装 samba-client
+
+	yum install samba-client
+
+再进行查询
+
 	smbclient -L //127.0.0.1 -U user%password
 
 挂载
@@ -76,6 +82,29 @@ username,password 为登录用户与密码;
 uid,gid 为挂载目录所属用户和组;
 
 dir_mode,file_mode 指定挂载目录的权限.
+
+开机自动挂载
+
+	vi /etc/fstab
+
+然后在最末行添加
+
+	//ipaddress/share    /mnt/share  cifs    default,username=user,password=passwd    0 0
+
+或者
+
+	vi /etc/rc.local
+
+然后添加`mount`命令：
+
+	mount -t cifs //192.168.1.1/share /mnt/share -o username=user,password=passwd,uid=500,gid=500,dir_mode=0777,file_mode=0777
+
+当通过mount.cifs命令对windows下的文件进行映射时，若文件太大，便会产生错误：`mount error(12): Cannot allocate memory`。
+
+解决方法是：
+
+修改注册表 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters\IRPStackSize项的值大于等于15，若IRPStackSize项不存在，就新建一个DWORD值，点击弹出窗口的的进制为十进制，值写个18就ok了，还要重启一下。
+
 
 
 

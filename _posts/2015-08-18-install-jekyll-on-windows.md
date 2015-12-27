@@ -67,7 +67,7 @@ python -version
 
 ## Install pip
 
-**有些 Python 安装包是包含 pip 的，不需另外安装。**
+**python 2.7.9 和3.4以后的版本已经内置累pip程序，不需另外安装。**
 
 **若已经使用 pygments 的 ruby 版，不需要这一步了。**
 
