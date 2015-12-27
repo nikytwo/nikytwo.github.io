@@ -1,9 +1,9 @@
 ---
 layout: page
 title:  Welcome Nikytwo blog
-tagline:  工欲善其事,必先利其器
+tagline:  Dont repeaaaaaaaaaaat
 ---
-{% include JB/setup %}
+
 
 ## 文章列表
 
@@ -13,11 +13,18 @@ tagline:  工欲善其事,必先利其器
   {% endfor %}
 </ul>
 
+
+***
+
+## 项目
+
+* [幸运大转盘](/LuckyRotorPlate)
+
 ***
 
 ## 其他
+- [学习资源](/learning-resource-index)
 - [以前的 Blog](http://www.cnblogs.com/nikytwo/)
 - [360doc 收藏的文章](http://www.360doc.com/userhome/14416931)
-- [我的代码](https://github.com/nikytwo/)
 
 
