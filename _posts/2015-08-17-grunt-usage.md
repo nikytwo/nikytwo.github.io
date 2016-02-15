@@ -12,7 +12,8 @@ tags: [javascript]
 
 # Install
 
-	// TODO
+	npm install -g grunt-cli
+
 
 # Gruntfile 配置文件
 

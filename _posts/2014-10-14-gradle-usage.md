@@ -26,6 +26,8 @@ tags: [Java Maven]
 
 * 将 GRADLE_HOME/bin 加入 PATH 变量
 
+* 设置 GRADLE_USER_HOME (自定义`.gradle`的路径)
+
 ## Running and testing
 
 	gradle -v
