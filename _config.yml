@@ -5,7 +5,7 @@ permalink: /:categories/:year/:month/:day/:title
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #pygments: true
 
-highlighter: pygments
+highlighter: rouge
 
 assets: /assets
 baseurl: 
@@ -19,7 +19,7 @@ paginate: 10
 #    input:  GFM
 #    auto_ids: true
 #    auto_id_prefix: 'id-'
-markdown: redcarpet
+# markdown: redcarpet
 redcarpet:
   extensions:
     - hard_wrap
