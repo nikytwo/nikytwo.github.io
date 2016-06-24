@@ -6,31 +6,167 @@ exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 #pygments: true
 
 highlighter: pygments
+
+assets: /assets
+baseurl: /
+
+# pagination
+paginate: 10
+
+# Markdown Processors
 #markdown: kramdown
 #kramdown:
 #    input:  GFM
 #    auto_ids: true
 #    auto_id_prefix: 'id-'
-
 markdown: redcarpet
 redcarpet:
   extensions:
-    - fenced_code_blocks
-    - strikethrough
+    - hard_wrap
     - no_intra_emphasis
     - autolink
+    - strikethrough
     - tables
+    - lax_spacing
     - with_toc_data
+    - fenced_code_blocks
 
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
 title : Niky t0o
-tagline: Site Tagline
+tagline: A technology blog for myself.
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      type: "post"
+
+##### Menu
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+## you can create `tags` and `categories` folders in `../source`.
+## And create a `index.md` file in each of them.
+## set `front-matter`as
+## layout: tags (or categories)
+## title: tags (or categories)
+## ---
+
+#### Widgets
+widgets: 
+- category
+- tag
+- links
+- weibo
+- douban
+- rss
+## provide seven widgets:category,tag,rss,archive,tagcloud,links,weibo,douban
+
+
+#### RSS 
+rss: /atom.xml ## RSS address.
+
+#### Image
+imglogo:
+  enable: true             ## display image logo true/false.
+  src: img/logo.png        ## `.svg` and `.png` are recommended,please put image into the theme folder `/jacman/source/img`.
+favicon: img/favicon.ico   ## size:32px*32px,`.ico` is recommended,please put image into the theme folder `/jacman/source/img`.     
+apple_icon: img/jacman.jpg ## size:114px*114px,please put image into the theme folder `/jacman/source/img`.
+author_img: img/author.jpg ## size:220px*220px.display author avatar picture.if don't want to display,please don't set this.
+banner_img: #img/banner.jpg ## size:1920px*200px+. Banner Picture
+
+#### index post is expanding or not 
+index:
+  expand: true           ## default is unexpanding,so you can only see the short description of each post.
+  excerpt_link: Read More  
+
+close_aside: false  #close sidebar in post page if true
+mathjax: false      #enable mathjax if true
+
+#### Author information
 author :
   name : Nikytwo L
-  email : nikytwo@gmail.com
-  github : nikytwo
+  intro_line1:   ## your introduction on the bottom of the page
+  intro_line2:   ## the 2nd line
+  weibo: 1805374732   ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
+  weibo_verifier:   ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
+  tsina:       ## e.g. 2176287895  Your weibo ID,It will be used in share button.
+  douban: 3608921     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
+  zhihu:       ## e.g. jark  for http://www.zhihu.com/people/jark
+  email: nikytwo@163.com      ## e.g. imjark@gmail.com
+  twitter:    ## e.g. jarkwu for https://twitter.com/jarkwu
+  github: nikytwo     ## e.g. wuchong for https://github.com/wuchong
+  facebook:   ## e.g. imjark for https://facebook.com/imjark
+  linkedin:   ## e.g. wuchong1014 for https://www.linkedin.com/in/wuchong1014
+  google_plus:  ## e.g. "111190881341800841449" for https://plus.google.com/u/0/111190881341800841449, the "" is needed!
+  stackoverflow:  ## e.g. 3222790 for http://stackoverflow.com/users/3222790/jark
+## if you set them, the corresponding  share button will show on the footer
+
+#### Toc
+toc:
+  article: true   ## show contents in article.
+  aside: true     ## show contents in aside.
+## you can set both of the value to true of neither of them.
+## if you don't want display contents in a specified post,you can modify `front-matter` and add `toc: false`.
+
+#### Links
+links:
+  以前的 Blog: http://www.cnblogs.com/nikytwo/
+  学习资源: http://www.xyula.com/learning-resource-index
+
+excerpt_separator: <!--more-->
+
+#### Comment
+duoshuo_shortname: nikytwo   ## e.g. wuchong   your duoshuo short name.
+disqus_shortname:     ## e.g. wuchong   your disqus short name.
+
+#### Share button
+jiathis:
+  enable: false ## if you use jiathis as your share tool,the built-in share tool won't be display.
+  id:    ## e.g. 1889330 your jiathis ID. 
+  tsina: ## e.g. 2176287895 Your weibo id,It will be used in share button.
+
+#### Analytics
+google_analytics:
+  enable: false
+  id:         ## e.g. UA-46321946-2 your google analytics ID.
+  site: auto      ## e.g. wuchong.me your google analytics site or set the value as auto.
+## You MUST upgrade to Universal Analytics first!
+## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
+baidu_tongji:
+  enable: false
+  sitecode:  ## e.g. e6d1f421bbc9962127a50488f9ed37d1 your baidu tongji site code
+cnzz_tongji:
+  enable: false
+  siteid:    ## e.g. 1253575964 your cnzz tongji site id
+
+#### Miscellaneous
+fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
+totop: true           ## if you want to scroll to top in every post set the value to true
+
+#### Custom Search
+google_cse: 
+  enable: false
+  cx:   ## e.g. 018294693190868310296:abnhpuysycw your Custom Search ID.
+## https://www.google.com/cse/ 
+## To enable the custom search You must create a "search" folder in '/source' and a "index.md" file
+## set the 'front-matter' as
+## layout: search 
+## title: search
+## ---
+baidu_search:     ## http://zn.baidu.com/
+  enable: false
+  id:   ## e.g. "783281470518440642"  for your baidu search id
+  site: http://zhannei.baidu.com/cse/search  ## your can change to your site instead of the default site
+  
+tinysou_search:     ## http://tinysou.com/
+  enable: false
+  id:  ## e.g. "4ac092ad8d749fdc6293" for your tiny search id
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 
@@ -41,105 +177,4 @@ author :
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
 production_url : http://nikytwo.github.io
-
-# All Jekyll-Bootstrap specific configurations are namespaced into this hash
-#
-JB :
-  version : 0.3.0
-
-  # All links will be namespaced by BASE_PATH if defined.
-  # Links in your website should always be prefixed with {{BASE_PATH}}
-  # however this value will be dynamically changed depending on your deployment situation.
-  #
-  # CNAME (http://yourcustomdomain.com)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Pages (http://username.github.io)
-  #   DO NOT SET BASE_PATH 
-  #   (urls will be prefixed with "/" and work relatively)
-  #
-  # GitHub Project Pages (http://username.github.io/project-name)
-  #
-  #   A GitHub Project site exists in the `gh-pages` branch of one of your repositories.
-  #  REQUIRED! Set BASE_PATH to: http://username.github.io/project-name
-  #
-  # CAUTION:
-  #   - When in Localhost, your site will run from root "/" regardless of BASE_PATH
-  #   - Only the following values are falsy: ["", null, false]
-  #   - When setting BASE_PATH it must be a valid url.
-  #     This means always setting the protocol (http|https) or prefixing with "/"
-  BASE_PATH : false
-
-  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
-  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
-  #
-  # Override this by defining an absolute path to assets here.
-  # ex: 
-  #   http://s3.amazonaws.com/yoursite/themes/watermelon
-  #   /assets
-  #
-  ASSET_PATH : false
-
-  # These paths are to the main pages Jekyll-Bootstrap ships with.
-  # Some JB helpers refer to these paths; change them here if needed.
-  #
-  archive_path: /archive.html
-  categories_path : /categories.html
-  tags_path : /tags.html
-  atom_path : /atom.xml
-  rss_path : /rss.xml
-
-  # Settings for comments helper
-  # Set 'provider' to the comment provider you want to use.
-  # Set 'provider' to false to turn commenting off globally.
-  #
-  # comments :
-  #   provider : disqus
-  #   disqus :
-  #     short_name : jekyllbootstrap
-  #   livefyre :
-  #     site_id : 123
-  #   intensedebate :
-  #     account : 123abc
-  #   facebook :
-  #     appid : 123
-  #     num_posts: 5
-  #     width: 580
-  #     colorscheme: light
-   
-  # Settings for analytics helper
-  # Set 'provider' to the analytics provider you want to use.
-  # Set 'provider' to false to turn analytics off globally.
-  #        
-  # analytics :
-  #   provider : google 
-  #   google : 
-  #       tracking_id : 'UA-123-12'
-  #   getclicky :
-  #     site_id : 
-  #   mixpanel :
-  #       token : '_MIXPANEL_TOKEN_'
-  #   piwik :
-  #       baseURL : 'myserver.tld/piwik' # Piwik installation address (without protocol)
-  #       idsite : '1'                   # the id of the site on Piwik
-
-  # Settings for sharing helper. 
-  # Sharing is for things like tweet, plusone, like, reddit buttons etc.
-  # Set 'provider' to the sharing provider you want to use.
-  # Set 'provider' to false to turn sharing off globally.
-  #
-  sharing :
-    provider : false
-    
-  # Settings for all other include helpers can be defined by creating 
-  # a hash with key named for the given helper. ex:
-  #
-  #   pages_list :
-  #     provider : "custom"   
-  #
-  # Setting any helper's provider to 'custom' will bypass the helper code
-  # and include your custom code. Your custom file must be defined at:
-  #   ./_includes/custom/[HELPER]
-  # where [HELPER] is the name of the helper you are overriding.
-  
+ 
