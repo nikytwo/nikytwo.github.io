@@ -47,9 +47,10 @@ defaults:
 
 ##### Menu
 menu:
-  Home: /
-  Archives: /archives
-  About: /about
+  主页: /
+  归档: /archives
+  分类: /categories
+  关于: /about
 ## you can create `tags` and `categories` folders in `../source`.
 ## And create a `index.md` file in each of them.
 ## set `front-matter`as
@@ -62,7 +63,7 @@ widgets:
 - category
 - tag
 - links
-- weibo
+## - weibo
 - douban
 - rss
 ## provide seven widgets:category,tag,rss,archive,tagcloud,links,weibo,douban
