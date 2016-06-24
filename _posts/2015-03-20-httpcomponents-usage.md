@@ -5,7 +5,6 @@ description: "HttpComponents 使用"
 category: Lib
 tags: [Java]
 ---
-{% include JB/setup %}
 
 # 1. Info
 

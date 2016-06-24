@@ -5,7 +5,6 @@ description: "Django REST framework 使用"
 category: lib
 tags: [Python, REST]
 ---
-{% include JB/setup %}
 
 
 # Info

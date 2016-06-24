@@ -5,7 +5,6 @@ description: "Linux 基础"
 category: Learning
 tags: [Linux]
 ---
-{% include JB/setup %}
 
 # 1. 基本命令
 

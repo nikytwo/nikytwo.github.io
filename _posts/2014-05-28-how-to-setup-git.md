@@ -5,7 +5,6 @@ description: "如何安装 Git"
 category: Tool
 tags: [Git]
 ---
-{% include JB/setup %}
 
 # 安装
 

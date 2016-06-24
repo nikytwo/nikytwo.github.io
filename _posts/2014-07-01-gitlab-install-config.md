@@ -5,7 +5,6 @@ description: "Gitlab 安装配置"
 category: Tool
 tags: [Git, Gitlab]
 ---
-{% include JB/setup %}
 
 
 ## 安装

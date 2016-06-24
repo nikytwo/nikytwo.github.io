@@ -5,7 +5,6 @@ description: "JAXB 使用"
 category: Lib
 tags: [Java,Xml,json]
 ---
-{% include JB/setup %}
 
 
 ## Info

@@ -5,7 +5,6 @@ description: "SELinux 学习笔记"
 category: Learning
 tags: [Linux, SELinux]
 ---
-{% include JB/setup %}
 
 
 # 简介

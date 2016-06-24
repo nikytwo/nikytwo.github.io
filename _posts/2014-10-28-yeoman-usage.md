@@ -5,7 +5,6 @@ description: "Yeoman 使用"
 category: tool
 tags: [javascript]
 ---
-{% include JB/setup %}
 
 
 # 1. Info

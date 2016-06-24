@@ -5,7 +5,6 @@ description: "maven 使用"
 category: Tool
 tags: [Java, Maven]
 ---
-{% include JB/setup %}
 
 
 ## 安装

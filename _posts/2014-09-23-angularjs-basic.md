@@ -5,7 +5,6 @@ description: "AngularJS 基础"
 category: Lib
 tags: [javascript]
 ---
-{% include JB/setup %}
 
 
 ## 作用域

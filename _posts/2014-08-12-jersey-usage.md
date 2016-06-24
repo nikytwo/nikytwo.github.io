@@ -5,7 +5,6 @@ description: "Jersey使用"
 category: Lib
 tags: [Java, REST]
 ---
-{% include JB/setup %}
 
 
 ## 1. Info

@@ -5,7 +5,6 @@ description: "PowerMock 使用"
 category: Lib
 tags: [Java,Test]
 ---
-{% include JB/setup %}
 
 
 ## 1. 什么是 Mock

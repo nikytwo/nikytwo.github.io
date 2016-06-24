@@ -5,7 +5,6 @@ description: "python 标准库使用"
 category: Lib
 tags: [python]
 ---
-{% include JB/setup %}
 
 
 ***

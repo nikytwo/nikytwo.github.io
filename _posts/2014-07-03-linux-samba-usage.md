@@ -5,7 +5,6 @@ description: "Linux 共享工具 Samba 使用"
 category: Learning
 tags: [Linux]
 ---
-{% include JB/setup %}
 
 
 安装

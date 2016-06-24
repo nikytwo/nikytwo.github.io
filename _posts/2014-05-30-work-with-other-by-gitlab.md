@@ -5,7 +5,6 @@ description: "Gitlab 多人协同开发"
 category: Tool
 tags: [Git,Gitlab]
 ---
-{% include JB/setup %}
 
 
 ## gitlab 工作流程

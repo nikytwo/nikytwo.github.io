@@ -5,7 +5,6 @@ description: "TortoiseGit 下 Git 基本操作"
 category: Tool
 tags: [Git]
 ---
-{% include JB/setup %}
 
 
 ## TortoiseGit 常用菜单

@@ -5,7 +5,6 @@ description: "<程序员修炼之道>读书笔记"
 category: Learning
 tags: [Read&Think]
 ---
-{% include JB/setup %}
 
 
 ## 责任

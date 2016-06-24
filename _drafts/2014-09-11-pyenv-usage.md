@@ -5,7 +5,6 @@ description: "Pyenv 使用"
 category: tool
 tags: [Python]
 ---
-{% include JB/setup %}
 
 
 ＃ Info

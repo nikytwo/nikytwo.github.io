@@ -5,7 +5,6 @@ description: "scrapy 使用"
 category: Lib
 tags: [python]
 ---
-{% include JB/setup %}
 
 # install
 

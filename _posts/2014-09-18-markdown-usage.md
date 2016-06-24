@@ -5,7 +5,6 @@ description: ""
 category: Tool
 tags: [Markdown]
 ---
-{% include JB/setup %}
 
 
 **完整版《Markdown 语法说明 (简体中文版)》请访问[Wow!Ubuntu](http://wowubuntu.com/markdown/)**

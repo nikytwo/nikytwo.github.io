@@ -5,7 +5,6 @@ description: "使用 Nexus 搭建 Maven 私服"
 category: Tool
 tags: [Maven]
 ---
-{% include JB/setup %}
 
 
 

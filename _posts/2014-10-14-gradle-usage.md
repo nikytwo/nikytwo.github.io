@@ -5,7 +5,6 @@ description: "Gradle 使用"
 category: tool
 tags: [Java Maven]
 ---
-{% include JB/setup %}
 
 
 # Install

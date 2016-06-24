@@ -5,7 +5,6 @@ description: "Commons-io 使用"
 category: Lib
 tags: [Java]
 ---
-{% include JB/setup %}
 
 # FileNameUtils
 

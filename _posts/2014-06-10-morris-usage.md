@@ -5,7 +5,6 @@ description: "Morris 使用"
 category: Lib
 tags: [javascript,图]
 ---
-{% include JB/setup %}
 
 ## 简介
 

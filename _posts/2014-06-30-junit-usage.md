@@ -5,7 +5,6 @@ description: "JUnit 使用"
 category: Lib
 tags: [Java, Test]
 ---
-{% include JB/setup %}
 
 
 ## 简介

@@ -5,7 +5,6 @@ description: "Apache CXF 使用"
 category: Lib
 tags: [Java,REST,JAX-RS,JAX-WS,Web Services,SAAJ,JMS,JBI]
 ---
-{% include JB/setup %}
 
 
 ## Info

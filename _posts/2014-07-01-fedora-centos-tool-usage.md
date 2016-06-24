@@ -5,7 +5,6 @@ description: "Fedora/CentOS 相关工具使用"
 category: Tool
 tags: [Linux]
 ---
-{% include JB/setup %}
 
 
 ## yum
