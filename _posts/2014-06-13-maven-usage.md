@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "maven 使用"
-description: "maven 使用"
+title: "maven 安装及使用"
+description: "maven 安装及使用"
 category: Tool
-tags: [Java, Maven]
+tags: [wiki, Java]
 ---
 
 
@@ -23,19 +23,29 @@ tags: [Java, Maven]
 
 * Test: `mvn --version`
 
-* 设置本地仓库路径：settings.xml 的 localRepository
+
+## 配置
+
+### 设置本地仓库路径
+
+修改安装目录下的`/conf/settings.xml`文件的`<settings>`节点下的`localRepository`节点内容。
+
+```xml
+// 以后通过 mvn 命令安装的包均放置该目录下
+<localRepository>E:\Lib\java\repository</localRepository>
+```
 
 
 ## 基础
 
-#### POM
+### POM
 
 就像 Make 的 Makefile,Ant 的 build.xml 一样,Maven 项目的核心是 pom.xml。
 
 POM(Project Object Model,项目对象模型)定义了项目的基本信息,
 用于描述项目如何构建,声明项目依赖,等等。
 
-#### 何为坐标
+### 何为坐标
 
 Maven定义了这样一组规则:世界上任何一个构件都可以使用Maven坐标唯一标识,
 Maven坐标的元素包括groupId、artifactId、version、packaging、classifier。
@@ -45,7 +55,7 @@ Maven坐标的元素包括groupId、artifactId、version、packaging、classifie
 
 对应的是 Java5 平台上 TestNG 的 5.8 版本
 
-#### 依赖
+### 依赖
 
 	// TODO 待整理
 
@@ -58,14 +68,14 @@ Maven本质上是一个插件框架，它的核心并不执行任何具体的构
 第一种方式是将插件目标与生命周期阶段（lifecycle phase）绑定，这样用户在命令行只是输入生命周期阶段而已，例如Maven默认将maven-compiler-plugin的compile目标与compile生命周期阶段绑定，因此命令mvn compile实际上是先定位到compile这一生命周期阶段，然后再根据绑定关系调用maven-compiler-plugin的compile目标。
 第二种方式是直接在命令行指定要执行的插件目标，例如mvn archetype:generate 就表示调用maven-archetype-plugin的generate目标，这种带冒号的调用方式与生命周期无关。
 
-#### [maven-archetype-plugin][archetype]
+### [maven-archetype-plugin][archetype]
 
 Archtype指项目的骨架
 
 * `mvn archetype:generate` => 生成一个很简单的项目骨架，帮助开发者快速上手。
 
 
-#### [maven-help-plugin][help]
+### [maven-help-plugin][help]
 
 * `mvn help:system` => 打印所有可用的环境变量和Java系统属性
 
@@ -74,14 +84,14 @@ Archtype指项目的骨架
 * `mvn help:effective-settings` => 打印项目的有效settings
 
 
-#### [maven-antrun-plugin][antrun]
+### [maven-antrun-plugin][antrun]
 
 让用户在Maven项目中运行Ant任务。
 用户可以直接在该插件的配置以Ant的方式编写Target(`<tasks>...</tasks>`)，然后交给该插件的run目标去执行。
 maven-antrun-plugin的run目标通常与生命周期绑定运行。
 
 
-#### [maven-dependency-plugin][dependency]
+### [maven-dependency-plugin][dependency]
 
 maven-dependency-plugin最大的用途是帮助分析项目依赖
 
@@ -94,7 +104,7 @@ maven-dependency-plugin最大的用途是帮助分析项目依赖
 * `mvn dependency:copy-dependencies` => 将项目依赖从本地Maven仓库复制到某个特定的文件夹下面。
 
 
-#### [maven-resources-plugin][resources]
+### [maven-resources-plugin][resources]
 
 Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来编译Java代码，maven-resources-plugin则用来处理资源文件。
 
@@ -103,7 +113,7 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 另外还可以进行资源文件过滤.
 
 
-#### [maven-surefire-plugin][surefire]
+### [maven-surefire-plugin][surefire]
 
 用于执行测试。
 
@@ -112,7 +122,7 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 然而在当你想要跳过测试、排除某些测试类、或者使用一些TestNG特性的时候，了解 [maven-surefire-plugin][surefire] 的一些配置选项就很有用了。
 
 
-#### [exec-maven-plugin][exec]
+### [exec-maven-plugin][exec]
 
 它能让你运行任何本地的系统程序，在某些特定情况下，运行一个Maven外部的程序可能就是最简单的问题解决方案。
 
@@ -123,7 +133,7 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 有时候，为了简单的演示一个命令行Java程序，你可以在POM中配置好exec-maven-plugin的相关运行参数，然后直接在命令运行 `mvn exec:java` 以查看运行效果。
 
 
-#### [jetty-maven-plugin][jetty]
+### [jetty-maven-plugin][jetty]
 
 在进行Web开发的时候，打开浏览器对应用进行手动的测试几乎是无法避免的，这种测试方法通常就是将项目打包成war文件，然后部署到Web容器中，再启动容器进行验证，这显然十分耗时。
 
@@ -142,6 +152,8 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 
 ***
 
+## 参考
+
 [archetype]: http://maven.apache.org/archetype/maven-archetype-plugin/
 [antrun]: http://maven.apache.org/plugins/maven-antrun-plugin/
 [dependency]: http://maven.apache.org/plugins/maven-dependency-plugin/
@@ -150,4 +162,3 @@ Maven区别对待Java代码文件和资源文件，maven-compiler-plugin用来�
 [surefire]: http://maven.apache.org/plugins/maven-surefire-plugin/
 [exec]: http://mojo.codehaus.org/exec-maven-plugin/
 [jetty]: http://wiki.eclipse.org/Jetty/Feature/Jetty_Maven_Plugin
-
