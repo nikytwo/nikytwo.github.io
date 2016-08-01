@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "《深入解析Oracle.DBA入门进阶与诊断案例》-- 第 7 章（重做）"
-description: "《深入解析Oracle.DBA入门进阶与诊断案例》-- 第 7 章（重做）"
+title: "《深入解析Oracle.DBA入门进阶与诊断案例》第7章(重做)--笔记"
+description: "《深入解析Oracle.DBA入门进阶与诊断案例》第 7 章（重做）--读书笔记"
 category: diary
 tags: [oracle]
 ---
