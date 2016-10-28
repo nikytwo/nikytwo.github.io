@@ -2,8 +2,8 @@
 layout: post
 title: "Morris 使用"
 description: "Morris 使用"
-category: Lib
-tags: [javascript,图]
+category: wiki
+tags: [javascript,Lib]
 ---
 
 ## 简介

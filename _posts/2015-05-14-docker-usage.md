@@ -2,8 +2,8 @@
 layout: post
 title: "Docker 使用"
 description: "Docker 使用"
-category: Tool
-tags: [learning]
+category: wiki
+tags: [Tool]
 ---
 
 # Info

@@ -2,8 +2,8 @@
 layout: post
 title: "Gitlab 安装配置"
 description: "Gitlab 安装配置"
-category: Tool
-tags: [Git, Gitlab]
+category: wiki
+tags: [Git,Gitlab,Tool]
 ---
 
 

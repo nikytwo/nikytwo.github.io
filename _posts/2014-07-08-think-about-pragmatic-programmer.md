@@ -2,8 +2,8 @@
 layout: post
 title: "程序员修炼之道--读书笔记"
 description: "<程序员修炼之道>读书笔记"
-category: Learning
-tags: [Read&Think]
+category: diary
+tags: []
 ---
 
 

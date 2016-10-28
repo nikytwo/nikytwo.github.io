@@ -2,8 +2,8 @@
 layout: post
 title: "Mockito 使用"
 description: "Mockito 使用"
-category: Lib
-tags: [Java,Test]
+category: wiki
+tags: [Java,Test,Lib]
 ---
 
 

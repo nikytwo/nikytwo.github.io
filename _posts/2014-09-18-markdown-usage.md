@@ -2,8 +2,8 @@
 layout: post
 title: "Markdown 语法说明"
 description: ""
-category: Tool
-tags: [Markdown]
+category: wiki
+tags: [Markdown,Tool]
 ---
 
 

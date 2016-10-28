@@ -2,8 +2,8 @@
 layout: post
 title: "JUnit 使用"
 description: "JUnit 使用"
-category: Lib
-tags: [Java, Test]
+category: wiki
+tags: [Java,Test,Lib]
 ---
 
 

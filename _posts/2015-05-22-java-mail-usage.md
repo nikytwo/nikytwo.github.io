@@ -2,8 +2,8 @@
 layout: post
 title: "Java Mail 使用"
 description: "Java Mail 使用"
-category: Lib
-tags: [Java]
+category: wiki
+tags: [Java, Lib]
 ---
 
 # Info

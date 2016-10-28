@@ -2,8 +2,8 @@
 layout: post
 title: "Grunt 使用文档"
 description: "Grunt 使用文档"
-category: tool
-tags: [javascript]
+category: wiki
+tags: [javascript,Tool]
 ---
 
 # Info

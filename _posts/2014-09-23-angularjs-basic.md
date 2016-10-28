@@ -2,8 +2,8 @@
 layout: post
 title: "AngularJS 基础"
 description: "AngularJS 基础"
-category: Lib
-tags: [javascript]
+category: wiki
+tags: [javascript, Lib]
 ---
 
 

@@ -2,7 +2,7 @@
 layout: post
 title: "SELinux 学习笔记"
 description: "SELinux 学习笔记"
-category: Learning
+category: diary
 tags: [Linux, SELinux]
 ---
 

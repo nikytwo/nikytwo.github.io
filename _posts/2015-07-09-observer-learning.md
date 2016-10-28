@@ -2,7 +2,7 @@
 layout: post
 title: "观察者模式的学习与思考"
 description: "观察者模式的学习与思考"
-category: learning
+category: Thinking
 tags: [Pattern]
 ---
 

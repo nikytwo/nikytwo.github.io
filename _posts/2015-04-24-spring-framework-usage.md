@@ -2,8 +2,8 @@
 layout: post
 title: "Spring Framework 使用"
 description: "Spring Framework 使用"
-category: Lib
-tags: [Java]
+category: wiki
+tags: [Java, Lib]
 ---
 
 

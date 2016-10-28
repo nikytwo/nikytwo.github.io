@@ -2,8 +2,8 @@
 layout: post
 title: "Yeoman 使用"
 description: "Yeoman 使用"
-category: tool
-tags: [javascript]
+category: wiki
+tags: [javascript, Tool]
 ---
 
 

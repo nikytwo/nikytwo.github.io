@@ -2,7 +2,7 @@
 layout: post
 title: "安装 Git"
 description: "如何安装 Git"
-category: Tool
+category: wiki
 tags: [Git]
 ---
 

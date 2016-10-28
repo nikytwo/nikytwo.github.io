@@ -2,8 +2,8 @@
 layout: post
 title: "webpack 简易教程"
 description: "webpack 简易教程"
-category: diary
-tags: [oracle]
+category: wiki
+tags: [javascript,Tool]
 ---
 
 

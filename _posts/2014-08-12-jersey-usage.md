@@ -2,8 +2,8 @@
 layout: post
 title: "Jersey使用"
 description: "Jersey使用"
-category: Lib
-tags: [Java, REST]
+category: wiki
+tags: [Java,REST,Lib]
 ---
 
 

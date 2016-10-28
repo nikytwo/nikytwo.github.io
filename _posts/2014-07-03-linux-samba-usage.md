@@ -2,7 +2,7 @@
 layout: post
 title: "Linux 共享工具 Samba 使用"
 description: "Linux 共享工具 Samba 使用"
-category: Learning
+category: wiki
 tags: [Linux]
 ---
 

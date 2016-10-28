@@ -2,8 +2,8 @@
 layout: post
 title: "Gitlab 多人协同开发"
 description: "Gitlab 多人协同开发"
-category: Tool
-tags: [Git,Gitlab]
+category: Thinking
+tags: [Git]
 ---
 
 

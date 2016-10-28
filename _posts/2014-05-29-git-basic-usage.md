@@ -2,7 +2,7 @@
 layout: post
 title: "Git 基本操作"
 description: "Git 基本操作"
-category: Tool
+category: wiki
 tags: [Git]
 ---
 

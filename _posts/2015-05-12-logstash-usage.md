@@ -2,8 +2,8 @@
 layout: post
 title: "logstash 使用"
 description: "logstash 使用"
-category: Tool
-tags: [日志]
+category: wiki
+tags: [Tool,log]
 ---
 
 # Info

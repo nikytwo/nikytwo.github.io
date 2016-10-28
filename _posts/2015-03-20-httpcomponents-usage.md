@@ -2,8 +2,8 @@
 layout: post
 title: "HttpComponents 使用"
 description: "HttpComponents 使用"
-category: Lib
-tags: [Java]
+category: wiki
+tags: [Java,Lib]
 ---
 
 # 1. Info

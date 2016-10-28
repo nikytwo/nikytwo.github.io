@@ -2,7 +2,7 @@
 layout: post
 title: "Linux 基础"
 description: "Linux 基础"
-category: Learning
+category: wiki
 tags: [Linux]
 ---
 

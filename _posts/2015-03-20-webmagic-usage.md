@@ -2,8 +2,8 @@
 layout: post
 title: "WebMagic 网络爬虫使用"
 description: "WebMagic 网络爬虫使用"
-category: Lib
-tags: [Java]
+category: wiki
+tags: [Java, Lib]
 ---
 
 # 1. info

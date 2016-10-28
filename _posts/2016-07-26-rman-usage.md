@@ -3,7 +3,7 @@ layout: post
 title: "Oracle 备份工具 RMAN 使用教程"
 description: "Oracle 备份工具 RMAN 使用教程"
 category: wiki
-tags: [oracle,rman]
+tags: [oracle,rman,Tool]
 ---
 
 

@@ -2,8 +2,8 @@
 layout: post
 title: "Commons-Lang 使用"
 description: "Commons-Lang 使用"
-category: Lib
-tags: [Java]
+category: wiki
+tags: [Java,Lib]
 ---
 
 

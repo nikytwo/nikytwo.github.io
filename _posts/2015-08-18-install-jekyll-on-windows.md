@@ -2,8 +2,8 @@
 layout: post
 title: "在 Windows 中安装 Jekyll"
 description: "在 Windows 中安装 Jekyll"
-category: Tool
-tags: [Ruby, Markdown]
+category: wiki
+tags: [Markdown, Blog]
 ---
 
 # Install Ruby

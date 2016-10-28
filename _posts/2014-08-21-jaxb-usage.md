@@ -2,8 +2,8 @@
 layout: post
 title: "JAXB 使用"
 description: "JAXB 使用"
-category: Lib
-tags: [Java,Xml,json]
+category: wiki
+tags: [Java,Xml,json,Lib]
 ---
 
 

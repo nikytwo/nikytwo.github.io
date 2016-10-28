@@ -2,8 +2,8 @@
 layout: post
 title: "Fedora/CentOS 相关工具使用"
 description: "Fedora/CentOS 相关工具使用"
-category: Tool
-tags: [Linux]
+category: wiki
+tags: [Linux,Tool]
 ---
 
 

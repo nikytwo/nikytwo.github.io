@@ -2,8 +2,8 @@
 layout: post
 title: "maven 安装及使用"
 description: "maven 安装及使用"
-category: Tool
-tags: [wiki, Java]
+category: wiki
+tags: [Java,Tool]
 ---
 
 

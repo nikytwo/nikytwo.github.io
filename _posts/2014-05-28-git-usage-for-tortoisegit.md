@@ -2,7 +2,7 @@
 layout: post
 title: "TortoiseGit 下 Git 基本操作"
 description: "TortoiseGit 下 Git 基本操作"
-category: Tool
+category: wiki
 tags: [Git]
 ---
 
