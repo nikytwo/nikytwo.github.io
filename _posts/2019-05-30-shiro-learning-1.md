@@ -116,8 +116,9 @@ Filter相关类 UML 如下图：
 
 ## Subject & SecurityManager
 
-UML
-![认证相关类UML](http://www.xyula.com/assets/images/shiro-SecurityManager-Subject.png)
+相关类 UML 如下图：
+
+![相关类UML](http://www.xyula.com/assets/images/shiro-SecurityManager-Subject.png)
 
 
 * `Subject` 是 shiro 重要的接口，对外的API核心
