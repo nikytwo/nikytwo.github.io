@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Shiro 源码学习-01"
+title: "Shiro 源码分析-01"
 description: "shiro 认证授权及Realm和相关Filter的学习"
 category: diary
 tags: [Java,Lib]
@@ -109,7 +109,7 @@ Filter相关类 UML 如下图：
 
 * `AbstractShiroFilter`
 * `ShiroFilter` 是整个Shiro的入口点
-* `SpringShiroFilter` Shiro 针对 spring 提供的`Filter`
+* `SpringShiroFilter` Shiro 针对 spring 提供的入口点
 
 * `PathConfigProcessor`
 
