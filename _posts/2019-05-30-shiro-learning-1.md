@@ -12,11 +12,11 @@ Apache Shiro是Java的一个安全框架。目前，使用Apache Shiro的人越�
 
 Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web集成、缓存等。这不就是我们想要的嘛，而且Shiro的API也是非常简单；其基本功能点如下图所示：
 
-![shiro基本功能](http://dl2.iteye.com/upload/attachment/0093/9788/d59f6d02-1f45-3285-8983-4ea5f18111d5.png)
+![shiro基本功能](http://www.xyula.com/assets/images/shiro-model.png)
 
 下图是从应用程序角度观察Shiro完成的工作：
 
-![shiro 调用链](http://dl2.iteye.com/upload/attachment/0093/9790/5e0e9b41-0cca-367f-8c87-a8398910e7a6.png)
+![shiro 调用链](http://www.xyula.com/assets/images/shiro-2.png)
 
 可以看到：应用代码直接交互的对象是Subject，也就是说Shiro的对外API核心就是`Subject`。
 `SecurityManager`管理`Subject`并执行相关安全操作。
@@ -136,5 +136,6 @@ Filter相关类 UML 如下图：
 # 参考
 
 - [跟我学Shiro](https://blog.csdn.net/qq_26562641/article/details/53004617)
+- [跟着大宇学Shiro](https://blog.csdn.net/yanluandai1985/article/details/79216141)
 
 
