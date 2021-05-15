@@ -94,7 +94,7 @@ author :
   name : Nikytwo L
   intro_line1:   ## your introduction on the bottom of the page
   intro_line2:   ## the 2nd line
-  weibo: 1805374732   ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
+  weibo:    ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier:   ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina:       ## e.g. 2176287895  Your weibo ID,It will be used in share button.
   douban: 3608921     ## e.g. wuchong1014 or your id for https://www.douban.com/people/wuchong1014
@@ -118,7 +118,7 @@ toc:
 #### Links
 links:
   以前的 Blog: http://www.cnblogs.com/nikytwo/
-  学习资源: http://www.xyula.com/learning-resource-index
+  学习资源: ./learning-resource-index
 
 excerpt_separator: <!--more-->
 
