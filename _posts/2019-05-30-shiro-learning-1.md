@@ -12,11 +12,11 @@ Apache Shiro是Java的一个安全框架。目前，使用Apache Shiro的人越�
 
 Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web集成、缓存等。这不就是我们想要的嘛，而且Shiro的API也是非常简单；其基本功能点如下图所示：
 
-![shiro基本功能](http://www.xyula.com/assets/images/shiro-model.png)
+![shiro基本功能]({{ site.url }}/assets/images/shiro-model.png)
 
 下图是从应用程序角度观察Shiro完成的工作：
 
-![shiro 调用链](http://www.xyula.com/assets/images/shiro-2.png)
+![shiro 调用链]({{ site.url }}/assets/images/shiro-2.png)
 
 可以看到：应用代码直接交互的对象是Subject，也就是说Shiro的对外API核心就是`Subject`。
 `SecurityManager`管理`Subject`并执行相关安全操作。
@@ -33,7 +33,7 @@ Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web
 
 `Realm`相关类的 UML 如下图:
 
-![Realm相关类UML](http://www.xyula.com/assets/images/shiro-realm.png)
+![Realm相关类UML]({{ site.url }}/assets/images/shiro-realm.png)
 
 * `Realm` 基接口，提供获取认证信息(用户、凭证)的方法
 * `AuthenticatingRealm` 封装了用户的认证过程，通过覆盖其虚方法`doGetAuthenticationInfo`可实现自己的认证信息获取；也可注入`credentialsMatcher`实现自定义的凭证校验，如`HashedCredentialsMatcher`等。
@@ -57,7 +57,7 @@ Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web
 
 认证相关类 UML 如下图：
 
-![认证相关类UML](http://www.xyula.com/assets/images/shiro-auththenticater.png)
+![认证相关类UML]({{ site.url }}/assets/images/shiro-auththenticater.png)
 
 * `Authenticator` 认证器，对用户凭证/token进行认证
 * `AbstractAuthenticator` 提供认证监听器，对认证结果进行监听
@@ -74,7 +74,7 @@ Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web
 
 授权相关类 UML 如下图：
 
-![授权相关类UML](http://www.xyula.com/assets/images/shiro-authorizer.png)
+![授权相关类UML]({{ site.url }}/assets/images/shiro-authorizer.png)
 
 * `Authorizer` 鉴权器，对用户-角色或用户-资源进行鉴权，即检查用户是否属于某个角色，或检查用户是否有某项资源的权限
 * `ModularRealmAuthorizer` Shiro 提供的，真正用于鉴权的类，其将鉴权过程委托给`Realm`
@@ -93,7 +93,7 @@ Shiro可以帮助我们完成：认证、授权、加密、会话管理、与Web
 
 Filter相关类 UML 如下图：
 
-![Filter相关类UML](http://www.xyula.com/assets/images/shiro-filter.png)
+![Filter相关类UML]({{ site.url }}/assets/images/shiro-filter.png)
 
 * `Filter` servlet 定义的接口
 * `OncePerRequestFilter` 每个请求只拦截一次
@@ -118,7 +118,7 @@ Filter相关类 UML 如下图：
 
 相关类 UML 如下图：
 
-![相关类UML](http://www.xyula.com/assets/images/shiro-SecurityManager-Subject.png)
+![相关类UML]({{ site.url }}/assets/images/shiro-SecurityManager-Subject.png)
 
 
 * `Subject` 是 shiro 重要的接口，对外的API核心
