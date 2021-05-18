@@ -16,7 +16,8 @@ ChannelPipeline是负责管理ChannelHandler的有序容器。
 其内部维护着一个由ChannelHandlerContext做为节点的**双向链表**。
 Netty上的事件便是通过这个链表进行传播的。
 
-首先，一图胜千言
+一图胜千言
+
 ![ChannelPipeline事件与传播][netty_pipeline]
 
 ChannelPipeline需要注意以下几个关键点：
