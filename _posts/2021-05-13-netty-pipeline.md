@@ -180,6 +180,7 @@ ChannelHandlerContext是ChannelPipeline双向链表中的节点。
 因此也被大家所接受并深爱着。 
 
 
+以上源码来自netty-all:4.1.32.Final
 
 ***
 
