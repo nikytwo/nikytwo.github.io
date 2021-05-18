@@ -52,6 +52,7 @@ ChannelPipeline需要注意以下几个关键点：
 
 更进一步的，我们从源码上去解读ChannelPipeline的几个要点：
 * ChannelPipeline实例化后便提供了**一个头节点和一个尾节点的双向链表**。
+
 ```java
     protected DefaultChannelPipeline(Channel channel) {
         this.channel = ObjectUtil.checkNotNull(channel, "channel");
@@ -66,9 +67,11 @@ ChannelPipeline需要注意以下几个关键点：
         tail.prev = head;
     }
 ```
+
 * 头节点被**标记为outbound**和inboud，尾节点**标记为inboud**。(在下面的ChannelHandlerContext会介绍其作用)
 * 头节点的入站处理程序会触发新的入站事件，出站处理程序会**调用unsafe对象的操作**(将数据输出到Sokect)。
 * 尾节点的入站处理程序是**空处理或回收资源操作**，出站处理程序触发新的出站事件。
+
 ```java
     HeadContext(DefaultChannelPipeline pipeline) {
         super(pipeline, null, HEAD_NAME, true, true);   // outbound=true
@@ -100,7 +103,9 @@ ChannelPipeline需要注意以下几个关键点：
     }
 
 ```
+
 * 在Channel和ChannelPineline上的事件会**传递给头节点(入站)或尾节点(出站)**。(再配合其他节点的handler，就可以形成了从头到尾（或从尾到头）依次传播的事件)
+
 ```java
     @Override
     public final ChannelPipeline fireChannelActive() {
@@ -113,6 +118,7 @@ ChannelPipeline需要注意以下几个关键点：
         return tail.writeAndFlush(msg); // 触发tail节点出站事件
     }
 ```
+
 * addXXX(ChannelHandler)会实例化一个含handler的ChannelHandlerContext对象，并插入链表。
 * addFirst在**头节点后**插入新节点，addLass在**尾节点前**插入新节点。
 
@@ -147,7 +153,7 @@ ChannelHandlerContext是ChannelPipeline双向链表中的节点。
 其源码不复杂，其中ChannelHandlerContext的findContextInbound/findContextOutbound 是实现**入站事件传递给InboundHandler**，**出站事件传递给OutboundHandler**的关键。
 其实现也比较简单，就是判断context的后续(入站事件)/前驱(出站事件)节点对应的handler实现是否是inbound/outbound，如果不是则遍历下一个节点，直至尾节点/头节点。
 
-而在上面的分析中，我们已经知道尾节点实例化时，inbound被设置为ture，头节点实例时，outbound被设置为ture。
+而在上面的分析中，我们已经知道尾节点实例化时，inbound被设置为ture，头节点实例化时，outbound被设置为ture。
 这便形成的遍历的**终止**条件。
 
 ```java
