@@ -27,7 +27,7 @@ ChannelPipeline需要注意以下几个关键点：
 
 其中，
 入站事件包括：
-* firefireChannelRegistered
+* fireChannelRegistered
 * fireChannelUnregistered
 * fireChannelActive
 * fireChannelInactive
